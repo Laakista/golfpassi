@@ -25,7 +25,7 @@ const navItems = [
   { label: "Äkkilähdöt", href: "/akkilahdot" },
   {
     label: "Info",
-    href: "/info",
+    href: "/info/meista",
     megaMenu: [
       { label: "Tietoa meistä", href: "/info/meista" },
       { label: "PGA Prot", href: "/info/pga-prot" },
