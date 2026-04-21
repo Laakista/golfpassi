@@ -1,0 +1,240 @@
+/* FeaturedTrips.css */
+
+.featured-trips-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.featured-trips-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+@media (min-width: 1400px) {
+    .featured-trips-container {
+        max-width: 1400px;
+    }
+}
+
+.featured-trips-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .featured-trips-header {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+}
+
+.featured-trips-label {
+    color: hsl(24, 100%, 50%);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+}
+
+.featured-trips-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    color: hsl(220, 20%, 10%);
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .featured-trips-title {
+        font-size: 3rem;
+        line-height: 1;
+    }
+}
+
+.view-all-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(24, 100%, 50%);
+    font-weight: 600;
+    text-decoration: none;
+    transition: gap 0.2s;
+}
+
+.view-all-link:hover {
+    gap: 0.75rem;
+}
+
+.arrow-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Grid */
+.featured-trips-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .featured-trips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .featured-trips-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Trip Card */
+.featured-trip-card {
+    display: block;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid hsl(220, 15%, 90%);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.featured-trip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.trip-image-wrapper {
+    position: relative;
+    height: 14rem;
+    overflow: hidden;
+}
+
+.trip-image-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.featured-trip-card:hover .trip-image-img {
+    transform: scale(1.05);
+}
+
+.trip-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, hsla(220, 25%, 12%, 0.6), transparent);
+}
+
+.trip-badge-span {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-primary {
+    background-color: hsl(24, 100%, 50%);
+}
+
+.badge-turquoise {
+    background-color: hsl(180, 80%, 45%);
+}
+
+.badge-golf {
+    background-color: hsl(142, 71%, 45%);
+}
+
+.trip-price-box {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: hsla(220, 25%, 12%, 0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+}
+
+.price-label-text {
+    color: hsl(0, 0%, 95%);
+    font-size: 0.875rem;
+}
+
+.price-amount-text {
+    color: hsl(24, 100%, 50%);
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.trip-content-box {
+    padding: 1.25rem;
+}
+
+.trip-title-h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: hsl(220, 20%, 10%);
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+}
+
+.featured-trip-card:hover .trip-title-h3 {
+    color: hsl(24, 100%, 50%);
+}
+
+.trip-location-div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(220, 10%, 45%);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.location-icon-svg {
+    width: 1rem;
+    height: 1rem;
+    color: hsl(220, 25%, 12%);
+}
+
+.trip-details-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+
+.trip-dates-div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(220, 10%, 45%);
+}
+
+.calendar-icon-svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.trip-duration-span {
+    color: hsl(142, 71%, 45%);
+    font-weight: 500;
+}

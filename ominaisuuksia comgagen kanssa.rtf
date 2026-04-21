@@ -1,0 +1,117 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww29200\viewh17260\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ri-4582\pardirnatural\partightenfactor0
+
+\f0\fs40 \cf0 Comgaten kanssa selvitett\'e4v\'e4\'e4\
+\
+1. tarvittavat ominaisuudet\
+  1.1. etusivu\
+    \'b7 vapaa tekstihaku?\
+    \'b7 valinnat (Matkatyyppi, kohdemaa, t\'e4git, aikahaarukka, hl\'f6t, )\
+    \'b7 lis\'e4valinnat (kesto, hintahaarukka, )\
+    \'b7 kuvat (yksi vai useampi)\
+    \'b7 j\'e4rjestys (oletuksena seuraavaksi l\'e4htev\'e4t)\
+    \'b7 esitystapa (ruudukko, lista)\
+    \'b7 lataa lis\'e4\'e4\'85\
+\
+  1.2. teemasivu\
+    \'b7 kategoriaan tai muuhun attribuuttiin perustuva listaus\
+    \'b7 opetusmatkat, \'e4kkil\'e4hd\'f6t\
+    \'b7 useampi listaus? (teemamatkat v\'e4liotsikoin ja kuvauksin)\
+\
+  1.3. kohdesivu\
+    \'b7 tiettyyn kohteeseen liittyv\'e4t l\'e4hd\'f6t ja niiden speksit\
+    \'b7 varausprosessi\
+\
+  1.4. pron sivu\
+    \'b7 shortlist: tulevat matkat (linkki kohdesivulle, l\'e4ht\'f6 valittuna)\
+\
+2. sis\'e4ll\'f6llinen muokattavuus / winres\
+  - l\'e4hd\'f6n speksit dynaamisesti hy\'f6dynnett\'e4v\'e4ss\'e4 muodossa?\
+  - Vet\'e4j\'e4/pro?\
+  - lis\'e4kenttien luominen?\
+\
+3. tyylillinen muokattavuus / css\
+  - saumaton upotus ilmeeseen olennaista\
+  - ty\'f6nkulun kannalta paras on API\
+  - toinen vaihtoehto rajattu p\'e4\'e4sy palvelimelle tms.\
+  - kolmas vaihtoehto dummy-sis\'e4lt\'f6 ja valmiiden tyylien toimitus\
+\
+4. selvitett\'e4v\'e4\'e4 / pohdittavaa\
+  - latausnopeus (nykyisell\'e4\'e4n surkea)\
+  - responsiivisuus (komponenttien rakenne)\
+  - saavutettavuus (iframe, tab, komp.rakenne)\
+  - hakukoneet (dynaaminen sis\'e4lt\'f6)\
+  - sivuston haku\
+    \'b7 l\'e4hd\'f6t kohteiden ja vet\'e4jien kautta OK\
+\
+\
+- -\
+\
+1. Varausj\'e4rjestelm\'e4n integraatio\
+\
+Asiakas ei poistu miss\'e4\'e4n vaiheessa sivustolta erilliseen varaamoon. Etusivulla on dynaaminen hakulistaus, joka hakee matkat suoraan varausj\'e4rjestelm\'e4st\'e4 ja matkan voi varata suoraan kohdesivulta.\
+\
+Matti varmistaa viel\'e4 uusien esimerkkien valossa ett\'e4 komponenteilla saadaan rakennettua EAA-direktiivin mukainen kokonaisuus, tyylitelt\'e4viss\'e4 riitt\'e4v\'e4ll\'e4 tasolla jne. ensi viikon kuluessa. Olemme Timi sinuun yhteydess\'e4 jos jokin n\'e4iss\'e4 aiheuttaa p\'e4\'e4nvaivaa.\
+\
+Youtravelin hakulistauksessa on nelj\'e4 kategoriaa, muttei lainkaan filttereit\'e4 tai maavalintaa. Saadaanko hakulistaukseen pudotusvalikot my\'f6s Golfpassin yli 20 filttereille ja 30 kohdemaalle?\
+\
+Hakulistauksessa saisi varmaankin n\'e4ky\'e4 p\'e4iv\'e4m\'e4\'e4rien, kohteen ja hinnan lis\'e4ksi ainakin kuva ja maatieto, mutta my\'f6s filtterien listaamista voisi harkita. Paras esitystapa matkoille voisi olla responsiivinen ruudukko. Onko n\'e4iss\'e4 jotain mik\'e4 ei onnistu?\
+\
+\
+2. Mahdollisimman simppeli hallinta\
+\
+Niin sivuston kuin varausj\'e4rjestelm\'e4nkin hallinnasta karsitaan kaikki turha pois, tietoja ei p\'e4ivitell\'e4 kahteen tai useampaan paikkaan ja sivuston hallintaan ei kerrytet\'e4 sadoittain klooneja matka- tai kohdesivuista.\
+\
+Kohdesivut luodaan sivuston puolella ja matkat luodaan varausj\'e4rjestelm\'e4ss\'e4. Matkat linkitet\'e4\'e4n kohdesivuihin kahdella tavalla: Hakulistauksen linkit viev\'e4t kohdesivulle, josta l\'f6ytyy kaikki varattavissa olevat matkat ja josta varauksen voi suoraan tehd\'e4.\
+\
+Youtravelin esimerkiss\'e4 matkan sivulla ei ilmeisesti esitet\'e4 muita l\'e4ht\'f6j\'e4, vaikka niit\'e4 olisi. Saadaanko kohdesivun varauskomponentista versio, jonka ensimm\'e4isess\'e4 stepiss\'e4 valitaan haluttu l\'e4ht\'f6 vaikka pudotusvalikosta, kun vaihtoehtoja on useampi?\
+\
+Mietin my\'f6s miten tuo mahtaa olla Youtravelilla toteutettu, kun matkasivun osoite on l\'e4hd\'f6st\'e4 riippumatta sama.\
+\
+\
+3. Matkojen mainostaminen ja alasivut\
+\
+J\'e4rjestelm\'e4integraation my\'f6t\'e4 sivustolta poistuvat nykyisen sivuston mukaiset mainoskarusellit, listaukset, matkavalikot ja pelimatkakalenteri, kun matkoja ei en\'e4\'e4 yll\'e4pidet\'e4 sivuston hallinnassa.\
+\
+Osaltaan t\'e4t\'e4 paikkaa etusivulle tuleva hakulistaus. Golfpassin toiminnassa on kuitenkin totuttu hy\'f6dynt\'e4m\'e4\'e4n my\'f6s vapaasti hallittavia mainoskaruselleja ja koostesivuja (pelimatkat, long stay, kisamatkat jne). Koostesivujen osalta \
+\
+\
+Saadaanko luotua komponentti, jossa listattavia matkoja voi poimia manuaalisesti haluamansa m\'e4\'e4r\'e4n varausj\'e4rjestelm\'e4n hallinnasta ja ne esitet\'e4\'e4n joko ruudukkona (esim. messutarjoukset -alasivu) tai mainoskarusellina (kts. nykyinen etusivu)? My\'f6s matkojen j\'e4rjestyst\'e4 olisi hyv\'e4 pysty\'e4 muuttamaan.\
+\
+Mainoskaruselli voidaan toteuttaa my\'f6s sivuston puolella, valikoimalla kohteita matkojen sijaan. T\'e4ll\'f6in tarvittaisiin minikomponentti, jossa listataan kohteeseen liittyv\'e4t l\'e4hd\'f6t hintoineen allekkain. Onnistuuko t\'e4m\'e4?\
+\
+\
+4. Yksil\'f6idyt tarjoukset\
+\
+Asiakkaalle voi rakentaa helposti yksil\'f6idyn tarjouksen kohdesivun avulla, jolloin henkil\'f6kohtainen linkki korvaa nykyisen pdf-tarjouksen. T\'e4m\'e4n suhteen fiksuinta toteutustapaa t\'e4ytyy viel\'e4 pohtia, mutta keinot keksit\'e4\'e4n kyll\'e4.\
+\
+Alustavien keskustelujen perusteella tarjouksen yhteydess\'e4 ei tarvita suoraa varausmahdollisuutta. Oletan ett\'e4 yksil\'f6ity tarjous luodaan aina Winresiin kuitenkin, jolloin varauskomponentin voisi hyvin liitt\'e4\'e4 suoraan tarjoukseenkin.\
+\
+Vastatkoon ken toimintatavan tuntee. Onko yksil\'f6idyt tarjoukset samalla tavalla olemassa varausj\'e4rjestelm\'e4ss\'e4, mutta niit\'e4 ei vaan listata julkisesti? Onko j\'e4rjestelm\'e4ss\'e4 ylip\'e4\'e4t\'e4\'e4n t\'e4llaista valintaa, ett\'e4 matka ei listaudu julkisesti muttei ole luonnoskaan?\
+\
+\
+5. Sivuston k\'e4ytett\'e4vyys ja ulkoasu\
+\
+T\'e4m\'e4 on mukana vain merkkaamassa sit\'e4, ett\'e4 sivuston uudistuksessa tehd\'e4\'e4n valtavasti muutakin kuin mit\'e4 olen yll\'e4 listannut. N\'e4ill\'e4 asioilla ei kuitenkaan kannata kuormittaa Comgatea. Haetaan syksyn kuluessa joku yhteinen teams-aika, jossa k\'e4yd\'e4\'e4n kokonaisuutta seikkaper\'e4isemmin l\'e4pi. \
+\
+\
+\
+\
+\
+\
+\
+\
+Golfpassin kanssa selvitett\'e4v\'e4\'e4\
+\
+\'b7 Voidaanko vaihtaa \'92Yksil\'f6idyt matkat\'92 \'96> \'92Kaikki kohteet\'92\
+\'b7 T\'e4\'e4ll\'e4 kaikki kohteet maittain tms. ja matkatyypit esim filtterein\'e4\
+\'b7 Kohdesivulla joka tapauksessa l\'e4hd\'f6t (jos niit\'e4 on) + \'92Pyyd\'e4 tarjous!\'92\
+\'b7 \'92Pyyd\'e4 tarjous!\'92 toimii kuten l\'e4ht\'f6, vaihtaa strategisten kenttien tiedot\
+\'b7 Voidaan ehk\'e4 yll\'e4pit\'e4\'e4 Appiksen j\'e4rjestelm\'e4ss\'e4 matkana? 1 per kohde\
+\'b7 N\'e4in sek\'e4 k\'e4ytt\'f6kokemus ett\'e4 hallinta ovat mutkattomia\
+\
+}

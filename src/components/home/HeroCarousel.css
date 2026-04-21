@@ -1,0 +1,267 @@
+/* HeroCarousel.css */
+
+.hero-carousel {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 900px;
+    overflow: hidden;
+}
+
+/* Slides */
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    transition: all 0.7s ease-out;
+    opacity: 0;
+    transform: scale(1.05);
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.slide-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-overlay-left {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, hsla(220, 25%, 12%, 0.9), hsla(220, 25%, 12%, 0.5), transparent);
+}
+
+.slide-overlay-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, hsla(220, 25%, 12%, 0.8), transparent, hsla(220, 25%, 12%, 0.3));
+}
+
+/* Content */
+.carousel-content-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    padding-bottom: 6rem;
+}
+
+@media (min-width: 1400px) {
+    .carousel-content-container {
+        max-width: 1400px;
+    }
+}
+
+.carousel-text-wrapper {
+    max-width: 42rem;
+    padding-top: 8rem;
+}
+
+.carousel-slide-content {
+    position: absolute;
+    transition: all 0.5s;
+    opacity: 0;
+    transform: translateY(2rem);
+    pointer-events: none;
+}
+
+.carousel-slide-content.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.slide-badge {
+    display: inline-block;
+    background-color: hsl(24, 100%, 50%);
+    color: white;
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.5s ease-out forwards;
+}
+
+.slide-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    animation: fadeUp 0.5s ease-out 0.1s forwards;
+    opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .slide-title {
+        font-size: 3.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .slide-title {
+        font-size: 4.5rem;
+    }
+}
+
+.slide-location {
+    font-size: 1.25rem;
+    color: hsl(180, 80%, 45%);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.5s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .slide-location {
+        font-size: 1.5rem;
+    }
+}
+
+.slide-description {
+    font-size: 1.25rem;
+    color: hsla(0, 0%, 95%, 0.95);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.5s ease-out 0.2s forwards;
+    opacity: 0;
+    max-width: 36rem;
+}
+
+@media (min-width: 768px) {
+    .slide-description {
+        font-size: 1.375rem;
+    }
+}
+
+.slide-dates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.5s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.date-tag {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.slide-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    animation: fadeUp 0.5s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.price-container {
+    color: white;
+}
+
+.price-label {
+    font-size: 0.875rem;
+    opacity: 0.75;
+    display: block;
+}
+
+.price-amount {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: hsl(24, 100%, 50%);
+}
+
+/* Navigation Arrows */
+.carousel-nav {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-button:hover {
+    background-color: hsl(24, 100%, 50%);
+    color: white;
+}
+
+.nav-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Dots */
+.carousel-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot-button {
+    height: 0.5rem;
+    border-radius: 9999px;
+    border: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 0.5rem;
+}
+
+.dot-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.dot-button.active {
+    width: 2rem;
+    background-color: hsl(24, 100%, 50%);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

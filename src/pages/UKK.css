@@ -1,0 +1,207 @@
+/* UKK.css */
+
+.ukk-page {
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.ukk-main {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+}
+
+.ukk-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+@media (min-width: 1400px) {
+    .ukk-container {
+        max-width: 1400px;
+    }
+}
+
+/* Hero Section */
+.ukk-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ukk-label {
+    color: hsl(24, 100%, 50%);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+}
+
+.ukk-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    color: hsl(220, 20%, 10%);
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .ukk-title {
+        font-size: 3rem;
+        line-height: 1;
+    }
+}
+
+.ukk-description {
+    color: hsl(220, 10%, 45%);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+/* Search Section */
+.ukk-search-container {
+    max-width: 36rem;
+    margin: 0 auto 3rem auto;
+}
+
+.ukk-search-wrapper {
+    position: relative;
+}
+
+.ukk-search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.25rem;
+    height: 1.25rem;
+    color: hsl(220, 10%, 65%);
+}
+
+.ukk-search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border-radius: 0.75rem;
+    border: 1px solid hsl(220, 15%, 90%);
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(220, 20%, 10%);
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.ukk-search-input::placeholder {
+    color: hsl(220, 10%, 65%);
+}
+
+.ukk-search-input:focus {
+    border-color: hsl(24, 100%, 50%);
+    outline: none;
+    box-shadow: 0 0 0 2px hsla(24, 100%, 50%, 0.2);
+}
+
+/* FAQ Accordion */
+.ukk-faq-container {
+    max-width: 48rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.ukk-category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: hsl(220, 20%, 10%);
+    margin-bottom: 1rem;
+}
+
+.ukk-accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ukk-accordion-item {
+    border: 1px solid hsl(220, 15%, 90%);
+    border-radius: 0.75rem;
+    padding: 0 1.5rem;
+    background-color: transparent;
+    transition: background-color 0.2s;
+}
+
+.ukk-accordion-item[data-state="open"] {
+    background-color: hsla(220, 15%, 96%, 0.5);
+}
+
+.ukk-accordion-trigger {
+    text-align: left;
+    font-weight: 500;
+    padding: 1.25rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.ukk-accordion-trigger:hover {
+    color: hsl(24, 100%, 50%);
+}
+
+.ukk-accordion-content {
+    color: hsl(220, 10%, 45%);
+    padding-bottom: 1.25rem;
+    line-height: 1.6;
+}
+
+.ukk-no-results {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.ukk-no-results-text {
+    color: hsl(220, 10%, 45%);
+}
+
+/* Contact CTA */
+.ukk-contact-cta {
+    max-width: 48rem;
+    margin: 4rem auto 0 auto;
+    text-align: center;
+    background-color: hsla(220, 15%, 96%, 0.5);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.ukk-contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: hsl(220, 20%, 10%);
+    margin-bottom: 0.5rem;
+}
+
+.ukk-contact-text {
+    color: hsl(220, 10%, 45%);
+    margin-bottom: 1rem;
+}
+
+.ukk-contact-link {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: hsl(24, 100%, 50%);
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+}
+
+.ukk-contact-link:hover {
+    text-decoration: underline;
+}

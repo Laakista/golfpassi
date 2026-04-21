@@ -1,0 +1,10 @@
+/* Index.css */
+
+.index-page {
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.index-main {
+    display: block;
+}

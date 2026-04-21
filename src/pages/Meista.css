@@ -1,0 +1,78 @@
+.meista-page {
+  @apply min-h-screen bg-background;
+}
+
+.meista-main {
+  @apply pt-20 pb-16 md:pt-32 md:pb-24;
+}
+
+.meista-container {
+  @apply container mx-auto px-4;
+}
+
+/* Hero Section */
+.meista-hero {
+  @apply text-center max-w-3xl mx-auto mb-16;
+}
+
+.meista-title {
+  @apply text-4xl md:text-5xl font-serif font-bold text-foreground mb-6;
+}
+
+.meista-description {
+  @apply text-lg text-muted-foreground;
+}
+
+/* Sections */
+.meista-section {
+  @apply mb-12;
+}
+
+.meista-section-title {
+  @apply text-2xl font-serif font-bold text-foreground mb-6;
+}
+
+/* Grid Layout */
+.meista-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8;
+}
+
+/* Cards */
+.meista-card {
+  @apply bg-card text-card-foreground p-8 rounded-xl border border-border shadow-sm;
+}
+
+.meista-card h3 {
+  @apply text-xl font-bold font-serif mb-4 flex items-center gap-3;
+}
+
+.meista-card p {
+  @apply text-muted-foreground mb-4 last:mb-0 leading-relaxed;
+}
+
+/* Special Cards */
+.intro-card {
+  @apply bg-golf/5 border-golf/20 max-w-4xl mx-auto;
+}
+
+.award-card {
+  @apply bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-center max-w-4xl mx-auto;
+}
+
+/* Lists */
+.meista-list {
+  @apply space-y-3 text-muted-foreground list-disc list-inside;
+}
+
+.meista-list li {
+  @apply pl-2 leading-relaxed;
+}
+
+/* Icons */
+.meista-icon-wrapper {
+  @apply w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6;
+}
+
+.meista-icon {
+  @apply w-6 h-6 text-primary;
+}

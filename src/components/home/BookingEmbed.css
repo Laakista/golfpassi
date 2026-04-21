@@ -1,0 +1,584 @@
+/* BookingEmbed.css */
+
+.booking-section {
+    padding: 5rem 0;
+    background-color: hsl(220, 25%, 12%);
+    color: hsl(0, 0%, 95%);
+}
+
+.booking-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+@media (min-width: 1400px) {
+    .booking-container {
+        max-width: 1400px;
+    }
+}
+
+.booking-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.booking-label {
+    color: hsl(24, 100%, 50%);
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+}
+
+.booking-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .booking-title {
+        font-size: 3rem;
+        line-height: 1;
+    }
+}
+
+.booking-description {
+    color: hsl(220, 10%, 65%);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    max-width: 42rem;
+    margin: 0 auto;
+}
+
+/* Advanced Search Filters */
+.search-filters-container {
+    background-color: hsla(0, 0%, 95%, 0.05);
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid hsla(0, 0%, 95%, 0.1);
+}
+
+.filters-grid-advanced {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .filters-grid-advanced {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+
+
+
+.filter-group-full {
+    grid-column: 1 / -1;
+}
+
+.filter-label {
+    color: hsl(0, 0%, 95%);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 0.75rem 3rem 0.75rem 1rem;
+    background-color: hsl(220, 25%, 12%);
+    border: 1px solid hsla(0, 0%, 95%, 0.2);
+    border-radius: 0.75rem;
+    color: hsl(0, 0%, 95%);
+    transition: border-color 0.2s;
+    font-size: 1rem;
+    line-height: 1.5;
+    height: 3rem;
+}
+
+.filter-select:focus {
+    border-color: hsl(24, 100%, 50%);
+    outline: none;
+}
+
+.filter-select-with-icon {
+    width: 100%;
+    padding: 0.75rem 0rem 0.75rem 2.75rem;
+    background-color: hsl(220, 25%, 12%);
+    border: 1px solid hsla(0, 0%, 95%, 0.2);
+    border-radius: 0.75rem;
+    color: hsl(0, 0%, 95%);
+    transition: border-color 0.2s;
+    font-size: 1rem;
+    line-height: 1.5;
+    height: 3rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.filter-select-with-icon:focus {
+    border-color: hsl(24, 100%, 50%);
+    outline: none;
+}
+
+.filter-input-with-icon {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.filter-icon-inline {
+    position: absolute;
+    left: 1rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: hsl(220, 10%, 65%);
+    pointer-events: none;
+}
+
+.looking {
+    left: 0;
+    bottom: 0.75rem;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 3rem;
+    background-color: hsl(220, 25%, 12%);
+    border: 1px solid hsla(0, 0%, 95%, 0.2);
+    border-radius: 0.75rem;
+    color: hsl(0, 0%, 95%);
+    transition: border-color 0.2s;
+    font-size: 1rem;
+    line-height: 1.5;
+    height: 3rem;
+}
+
+.filter-input:focus {
+    border-color: hsl(24, 100%, 50%);
+    outline: none;
+}
+
+/* Hide native date picker icon */
+.filter-input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.filter-input::-webkit-inner-spin-button,
+.filter-input::-webkit-outer-spin-button {
+    display: none;
+}
+
+/* Date field border radius adjustments for merged fields */
+.filter-input-date-left {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.filter-input-date-right {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Container for merged date fields */
+.date-fields-merged {
+    display: flex;
+    gap: 0;
+}
+
+.date-fields-merged .filter-input-with-icon {
+    flex: 1;
+}
+
+.filter-date-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: hsl(220, 25%, 12%);
+    border: 1px solid hsla(0, 0%, 95%, 0.2);
+    border-radius: 0.75rem;
+    color: hsl(0, 0%, 95%);
+    transition: border-color 0.2s;
+    font-size: 1rem;
+}
+
+.filter-date-input:focus {
+    border-color: hsl(24, 100%, 50%);
+    outline: none;
+}
+
+/* Price Range Slider */
+.price-range-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.price-range-slider {
+    flex: 1;
+    height: 6px;
+    background: linear-gradient(to right, hsl(24, 100%, 50%), hsl(24, 100%, 60%));
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.price-range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: hsl(24, 100%, 50%);
+    border: 2px solid hsl(0, 0%, 95%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.price-range-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: hsl(24, 100%, 50%);
+    border: 2px solid hsl(0, 0%, 95%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Search and Tags Container */
+.search-and-tags-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Search Bar */
+.search-bar-wrapper {
+    width: 100%;
+    min-width: 220px;
+    flex: 1 1 220px;
+}
+
+.search-bar-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid hsla(0, 0%, 95%, 0.3);
+    border-radius: 0;
+    padding: 0.5rem 1rem 1rem 2rem;
+    color: hsl(0, 0%, 95%);
+    transition: border-color 0.2s;
+    font-size: 1rem;
+    line-height: 1.5;
+    height: 2.2rem;
+}
+
+.search-bar-input:focus {
+    border-bottom-color: hsl(24, 100%, 50%);
+    outline: none;
+}
+
+.search-bar-input::placeholder {
+    color: hsl(220, 10%, 65%);
+}
+
+/* Tags */
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    flex: 0 1 auto;
+}
+
+.tag-button {
+    padding: 0.375rem 0.75rem;
+    background-color: hsla(0, 0%, 95%, 0.1);
+    border-radius: 1rem;
+    color: hsl(0, 0%, 95%);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tag-button:hover {
+    background-color: hsl(24, 100%, 26%);
+}
+
+.tag-button-active {
+    background-color: hsl(24, 100%, 50%);
+    color: white;
+}
+
+/* Results Header */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.results-count {
+    color: hsl(0, 0%, 95%);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.sort-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sort-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: hsl(24, 100%, 50%);
+}
+
+.sort-label {
+    color: hsl(0, 0%, 95%);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.sort-select {
+    padding: 0.5rem 1rem;
+    background-color: hsl(220, 25%, 12%);
+    border: 1px solid hsla(0, 0%, 95%, 0.2);
+    border-radius: 0.5rem;
+    color: hsl(0, 0%, 95%);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.sort-select:focus {
+    border-color: hsl(24, 100%, 50%);
+    outline: none;
+}
+
+/* Trips Grid */
+.trips-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+    .trips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .trips-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.trip-card {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.trip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px hsla(220, 25%, 12%, 0.15);
+    border-color: hsla(24, 100%, 50%, 0.5);
+}
+
+.trip-image-container {
+    position: relative;
+    height: 14rem;
+    overflow: hidden;
+}
+
+.trip-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.trip-card:hover .trip-image {
+    transform: scale(1.05);
+}
+
+.trip-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, hsla(220, 25%, 12%, 0.6), transparent);
+}
+
+.trip-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: white;
+}
+
+.badge-primary {
+    background-color: hsl(24, 100%, 50%);
+}
+
+.badge-turquoise {
+    background-color: hsl(180, 80%, 45%);
+}
+
+.badge-golf {
+    background-color: hsl(142, 71%, 45%);
+}
+
+.trip-price-badge {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: hsla(220, 25%, 12%, 0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 0.5rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.trip-price-from {
+    color: hsl(0, 0%, 95%);
+    font-size: 0.875rem;
+}
+
+.trip-price-amount {
+    color: hsl(24, 100%, 50%);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-left: 0.25rem;
+}
+
+.trip-content {
+    padding: 1.25rem;
+}
+
+.trip-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: hsl(220, 20%, 10%);
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+}
+
+.trip-card:hover .trip-title {
+    color: hsl(24, 100%, 50%);
+}
+
+.trip-location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(220, 10%, 45%);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.trip-location-icon {
+    width: 1rem;
+    height: 1rem;
+    color: hsl(180, 80%, 45%);
+}
+
+.trip-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+
+.trip-dates {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: hsl(220, 10%, 45%);
+}
+
+.trip-info-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.trip-duration {
+    color: hsl(142, 71%, 45%);
+    font-weight: 500;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: hsl(220, 10%, 65%);
+    font-size: 1.125rem;
+}
+
+/* Contact Info */
+.booking-contact {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.booking-contact-text {
+    color: hsl(220, 10%, 65%);
+    margin-bottom: 1rem;
+}
+
+.booking-phone-link {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    color: hsl(24, 100%, 50%);
+    text-decoration: none;
+    transition: text-decoration 0.2s;
+}
+
+.booking-phone-link:hover {
+    text-decoration: underline;
+}
