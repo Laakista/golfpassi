@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import "./HeroCarousel.css";
 
@@ -157,9 +158,9 @@ export function HeroCarousel() {
 
               <div className="slide-actions">
                 <Button variant="hero" size="xl" asChild>
-                  <a href={slide.href}>
+                  <Link to={slide.href}>
                     {slide.isPromo ? "Tutustu" : slide.price ? slide.price : "Varaa nyt"}
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
