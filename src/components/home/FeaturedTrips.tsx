@@ -30,7 +30,7 @@ const featuredTrips: Trip[] = [
     dates: "Maaliskuu – Huhtikuu 2026",
     duration: "7 tai 14 vrk",
     price: "2245",
-    href: "/pelimatkat/kreikka/costa-navarino",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "2",
@@ -42,7 +42,7 @@ const featuredTrips: Trip[] = [
     dates: "Huhtikuu 2026",
     duration: "7 tai 14 vrk",
     price: "2070",
-    href: "/pelimatkat/turkki/sirene-belek",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "3",
@@ -52,7 +52,7 @@ const featuredTrips: Trip[] = [
     dates: "Maaliskuu – Huhtikuu 2026",
     duration: "7 tai 14 vrk",
     price: "1650",
-    href: "/pelimatkat/espanja/mallorca-hipotels",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "4",
@@ -64,7 +64,7 @@ const featuredTrips: Trip[] = [
     dates: "Maaliskuu – Huhtikuu 2026",
     duration: "7 tai 14 vrk",
     price: "1875",
-    href: "/pelimatkat/italia/sicilia-etna",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
 ];
 

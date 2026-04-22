@@ -26,7 +26,7 @@ const trips = [
     tags: ["Rantakohde", "Luksus", "TOP-kentät", "Rajaton golf"],
     persons: 1,
     rooms: 1,
-    href: "/pelimatkat/kreikka/costa-navarino/1",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "2",
@@ -44,7 +44,7 @@ const trips = [
     tags: ["All Inclusive", "Rantakohde", "Paras vastine rahoille", "Rajaton golf"],
     persons: 1,
     rooms: 1,
-    href: "/pelimatkat/turkki/sirene-belek/2",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "3",
@@ -60,7 +60,7 @@ const trips = [
     tags: ["Puolihoito", "Rantakohde", "Paras vastine rahoille"],
     persons: 1,
     rooms: 1,
-    href: "/pelimatkat/espanja/mallorca-hipotels/3",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "4",
@@ -78,7 +78,7 @@ const trips = [
     tags: ["Uutuus", "Luontokohde", "Kulttuurikohde", "TOP-kentät"],
     persons: 1,
     rooms: 1,
-    href: "/pelimatkat/italia/sicilia-etna/4",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "5",
@@ -94,7 +94,7 @@ const trips = [
     tags: ["All Inclusive", "Pron matkassa", "Rantakohde", "Resortloma"],
     persons: 1,
     rooms: 1,
-    href: "/pelimatkat/turkki/gloria-golf/5",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "6",
@@ -110,7 +110,7 @@ const trips = [
     tags: ["Puolihoito", "Rantakohde", "Lennä lähelle"],
     persons: 1,
     rooms: 1,
-    href: "/pelimatkat/espanja/son-gual/6",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
 ];
 

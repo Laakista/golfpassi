@@ -25,7 +25,7 @@ const trips = [
     duration: "7 tai 14 vrk",
     price: "2245",
     type: "pelimatka",
-    href: "/pelimatkat/kreikka/costa-navarino",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "2",
@@ -41,7 +41,7 @@ const trips = [
     duration: "7 tai 14 vrk",
     price: "2070",
     type: "pelimatka",
-    href: "/pelimatkat/turkki/sirene-belek",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "3",
@@ -55,7 +55,7 @@ const trips = [
     duration: "7 tai 14 vrk",
     price: "1650",
     type: "pelimatka",
-    href: "/pelimatkat/espanja/mallorca-hipotels",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "4",
@@ -71,7 +71,7 @@ const trips = [
     duration: "7 tai 14 vrk",
     price: "1875",
     type: "pelimatka",
-    href: "/pelimatkat/italia/sicilia-etna",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "5",
@@ -85,7 +85,7 @@ const trips = [
     duration: "7 vrk",
     price: "1890",
     type: "pelimatka",
-    href: "/pelimatkat/turkki/gloria-golf",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: "6",
@@ -99,7 +99,7 @@ const trips = [
     duration: "7 vrk",
     price: "1950",
     type: "pelimatka",
-    href: "/pelimatkat/espanja/son-gual",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
 ];
 

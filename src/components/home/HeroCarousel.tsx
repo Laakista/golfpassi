@@ -39,7 +39,7 @@ const slides: Slide[] = [
     location: "Pilos, Kreikka",
     dates: ["22.-29.3.2026", "29.3.-5.4.2026", "4.-12.4.2026"],
     price: "alk. 2245 €",
-    href: "/pelimatkat/kreikka/costa-navarino",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: 3,
@@ -49,7 +49,7 @@ const slides: Slide[] = [
     location: "Belek, Turkki",
     dates: ["3.-11.4.2026", "11.-18.4.2026", "18.-25.4.2026"],
     price: "alk. 2070 €",
-    href: "/pelimatkat/turkki/sirene-belek",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ const slides: Slide[] = [
     location: "Mallorca, Espanja",
     dates: ["7.-14.3.2026", "14.-21.3.2026", "21.-28.3.2026"],
     price: "alk. 1650 €",
-    href: "/pelimatkat/espanja/mallorca-hipotels",
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
 ];
 
