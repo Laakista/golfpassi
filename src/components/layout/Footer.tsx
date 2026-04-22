@@ -83,9 +83,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="links-column-title">Kohteet</h4>
+            <h4 className="links-column-title">Info</h4>
             <ul className="links-list">
-              {footerLinks.kohteet.map((link) => (
+              {footerLinks.info.map((link) => (
                 <li key={link.label}>
                   <Link to={link.href} className="footer-link">
                     {link.label}
@@ -96,15 +96,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="links-column-title">Info</h4>
-            <ul className="links-list">
-              {footerLinks.info.map((link) => (
-                <li key={link.label}>
-                  <Link to={link.href} className="footer-link">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="links-column-title">Tartu retkeen</h4>
+            <ul className="footer-stats-list text-white/80 space-y-2 mt-4 text-sm">
+              <li>Perustettu 2008</li>
+              <li>5000+ palveltua asiakasta</li>
+              <li>30000+ golfkierrosta</li>
+              <li>40+ matkakohdetta</li>
+              <li>15+ PGA Prota</li>
             </ul>
           </div>
         </div>

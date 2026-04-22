@@ -217,7 +217,7 @@ Somabay Golfia pidetään yhtenä Egyptin parhaista golfkentistä. Tällä mesta
 
 const DestinationPage = () => {
   const { tripId } = useParams<{ tripId: string }>();
-  const [activeTab, setActiveTab] = useState<"resort" | "golf" | "info">("resort");
+  const [activeTab, setActiveTab] = useState<"resort" | "golf" | "info" | "map">("resort");
   const [selectedDateIndex, setSelectedDateIndex] = useState<number | "quote">(0);
 
   // Get trip data - in production this would fetch from API
@@ -284,7 +284,7 @@ const DestinationPage = () => {
                 <span className="hero-price-value">{selectedConfig?.price.double || trip.dateConfigurations[0].price.double} €</span>
               </div>
 
-              <Button variant="hero" size="xl" className="hero-booking-button" asChild>
+              <Button variant="hero" size="lg" className="hero-booking-button" asChild>
                 <a href="#varaa">Varaa nyt</a>
               </Button>
             </div>
@@ -292,7 +292,46 @@ const DestinationPage = () => {
         </div>
       </section>
 
-
+      {/* Departure Dates Section (Below Hero) */}
+      <section className="py-4 bg-muted/30 border-y border-border">
+        <div className="container">
+          <div className="dates-container md:flex-row md:items-center">
+            <h3 className="dates-label text-left">
+              Lähdöt
+            </h3>
+            <div className="dates-grid">
+              {trip.dateConfigurations.map((config, index) => (
+                <button
+                  key={config.date}
+                  onClick={() => {
+                    setSelectedDateIndex(index);
+                    document.getElementById('varaa')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className={cn(
+                    "date-badge",
+                    selectedDateIndex === index && "date-badge-selected"
+                  )}
+                >
+                  <Calendar className="w-3.5 h-3.5 text-primary" />
+                  <span className="date-text">{config.date}</span>
+                </button>
+              ))}
+              <button
+                onClick={() => {
+                  setSelectedDateIndex("quote");
+                  document.getElementById('varaa')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={cn(
+                  "date-badge date-badge-quote",
+                  selectedDateIndex === "quote" && "date-badge-selected"
+                )}
+              >
+                <span className="date-text">Yksilöity tarjous</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Trip Inclusions */}
       {(selectedConfig || quoteConfig) && (
@@ -336,12 +375,48 @@ const DestinationPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-white p-6 rounded-xl border border-border">
+                <div className="bg-white p-6 rounded-xl border border-border mt-8">
                   <h4 className="font-semibold text-lg flex items-center gap-2 mb-4">
-                    <Plane className="text-primary w-5 h-5"/> Suorat lennot
+                    <Plane className="text-primary w-5 h-5" /> Suorat lennot {selectedConfig.date}
                   </h4>
-                  <p className="text-muted-foreground text-sm font-medium mb-1">Helsinki (HEL) - {trip.location} // {trip.location} - Helsinki (HEL)</p>
-                  <p className="text-muted-foreground text-sm">Hintaan sisältyy käsimatkatavara (10kg) ja ruumaan menevä laukku (23kg). Lento-aikataulut vahvistetaan myöhemmin.</p>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Outbound */}
+                      <div className="bg-muted/30 p-4 rounded-lg">
+                        <div className="text-sm font-semibold text-muted-foreground mb-1 flex justify-between">
+                          <span>MENOLENTO</span>
+                          <span>Helsinki - {trip.location.split(',')[0]}</span>
+                        </div>
+                        <div className="flex justify-between items-center mt-2">
+                          <div className="font-medium text-lg">HEL 06:15</div>
+                          <div className="text-muted-foreground flex-1 mx-4 border-t border-dashed border-border relative">
+                            <Plane className="w-4 h-4 text-muted-foreground absolute top-[calc(50%-10px)] right-2" />
+                          </div>
+                          <div className="font-medium text-lg">HRG 11:30</div>
+                        </div>
+                        <div className="text-xs text-muted-foreground mt-2">Norwegian D8 2800</div>
+                      </div>
+                      
+                      {/* Return */}
+                      <div className="bg-muted/30 p-4 rounded-lg">
+                        <div className="text-sm font-semibold text-muted-foreground mb-1 flex justify-between">
+                          <span>PALUULENTO</span>
+                          <span>{trip.location.split(',')[0]} - Helsinki</span>
+                        </div>
+                        <div className="flex justify-between items-center mt-2">
+                          <div className="font-medium text-lg">HRG 12:50</div>
+                          <div className="text-muted-foreground flex-1 mx-4 border-t border-dashed border-border relative">
+                            <Plane className="w-4 h-4 text-muted-foreground absolute top-[calc(50%-10px)] right-2" />
+                          </div>
+                          <div className="font-medium text-lg">HEL 18:05</div>
+                        </div>
+                        <div className="text-xs text-muted-foreground mt-2">Norwegian D8 2801</div>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground text-sm border-t border-border/50 pt-3">
+                      Lentoajat ovat viitteellisiä sitoumuksetta (paikallista aikaa). Hintaan sisältyy käsimatkatavara (10kg) sekä ruumaan menevä matkalaukku (23kg).
+                    </p>
+                  </div>
                 </div>
               </div>
             )}
@@ -395,6 +470,20 @@ const DestinationPage = () => {
                 <div className="tab-indicator" />
               )}
             </button>
+            <button
+              onClick={() => setActiveTab("map")}
+              className={cn(
+                "tab-button",
+                activeTab === "map"
+                  ? "tab-button-active"
+                  : "tab-button-inactive"
+              )}
+            >
+              Kartta
+              {activeTab === "map" && (
+                <div className="tab-indicator" />
+              )}
+            </button>
           </div>
 
           {/* Info Tab Content */}
@@ -425,6 +514,24 @@ const DestinationPage = () => {
                     )}
                   </div>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* Map Tab Content */}
+          {activeTab === "map" && (
+            <div className="animate-fade-in py-8">
+              <div className="w-full h-[500px] bg-muted/20 rounded-xl overflow-hidden border border-border flex items-center justify-center relative">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14138.83546594247!2d33.9877478!3d26.8453472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x144d2d47f9f3024f%3A0x6b77afbdc92af5e7!2sThe%2Cascades%20Golf%20Resort%2C%20Spa%20%26%20Thalasso!5e0!3m2!1sen!2sfi!4v1713780512345!5m2!1sen!2sfi" 
+                  width="100%" 
+                  height="100%" 
+                  style={{ border: 0 }} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                ></iframe>
               </div>
             </div>
           )}
@@ -596,9 +703,9 @@ const DestinationPage = () => {
 
       {/* Tour Guide Section */}
       {(selectedConfig?.tourGuide || quoteConfig?.tourGuide) && (
-        <section className="tour-guide-section">
+        <section className="tour-guide-section bg-[#e7eee6]">
           <div className="container">
-            <div className="tour-guide-card bg-golf/5 border-none">
+            <div className="tour-guide-card bg-white border border-border">
               <div className="tour-guide-content">
                 <User className="w-16 h-16 text-primary flex-shrink-0" />
                 <div>
@@ -644,28 +751,26 @@ const DestinationPage = () => {
             </div>
 
             {/* Departures selection inline in booking header */}
-            {selectedDateIndex !== "quote" && (
-              <div className="dates-container justify-start mt-8">
-                <h3 className="dates-label">
-                  Lähdöt
-                </h3>
-                <div className="dates-grid">
-                  {trip.dateConfigurations.map((config, index) => (
-                    <button
-                      key={config.date}
-                      onClick={() => setSelectedDateIndex(index)}
-                      className={cn(
-                        "date-badge",
-                        selectedDateIndex === index && "date-badge-selected"
-                      )}
-                    >
-                      <Calendar className="w-3.5 h-3.5 text-primary" />
-                      <span className="date-text">{config.date}</span>
-                    </button>
-                  ))}
-                </div>
+            <div className="dates-container justify-start mt-8">
+              <h3 className="dates-label">
+                Lähdöt
+              </h3>
+              <div className="dates-grid">
+                {trip.dateConfigurations.map((config, index) => (
+                  <button
+                    key={config.date}
+                    onClick={() => setSelectedDateIndex(index)}
+                    className={cn(
+                      "date-badge",
+                      selectedDateIndex === index && "date-badge-selected"
+                    )}
+                  >
+                    <Calendar className="w-3.5 h-3.5 text-primary" />
+                    <span className="date-text">{config.date}</span>
+                  </button>
+                ))}
               </div>
-            )}
+            </div>
           </div>
 
           {/* Booking Form */}
