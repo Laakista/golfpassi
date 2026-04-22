@@ -530,7 +530,7 @@ const DestinationPage = () => {
           {/* Gallery Tab Content */}
           {activeTab === "gallery" && galleryImages.length > 0 && (
             <div className="animate-fade-in py-8">
-              <div className="w-full h-[500px] bg-muted/20 rounded-xl overflow-hidden mb-4 relative flex items-center justify-center">
+              <div className="w-full h-[550px] md:h-[650px] lg:h-[750px] bg-muted/20 rounded-xl overflow-hidden mb-3 relative flex items-center justify-center">
                 <img 
                   src={galleryImages[galleryImageIndex]} 
                   alt="Galleria" 
@@ -552,6 +552,11 @@ const DestinationPage = () => {
                     <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
+              </div>
+
+              {/* Image Caption Placeholder */}
+              <div className="text-center text-sm text-muted-foreground italic tracking-wide mb-6">
+                {["Erinoimaisesti hoidetut kentät", "Lämpösäädetty allas on aina täydellinen", "Upeat maisemat nauttia virvokkeita kierroksen jälkeen", "Rento tunnelma ja ensiluokkainen palvelu"][galleryImageIndex % 4]}
               </div>
 
               {/* Thumbnails (hidden on mobile) */}
