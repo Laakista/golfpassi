@@ -217,7 +217,7 @@ Somabay Golfia pidetään yhtenä Egyptin parhaista golfkentistä. Tällä mesta
 
 const DestinationPage = () => {
   const { tripId } = useParams<{ tripId: string }>();
-  const [activeTab, setActiveTab] = useState<"resort" | "golf">("resort");
+  const [activeTab, setActiveTab] = useState<"resort" | "golf" | "info">("resort");
   const [selectedDateIndex, setSelectedDateIndex] = useState<number | "quote">(0);
 
   // Get trip data - in production this would fetch from API
@@ -292,40 +292,7 @@ const DestinationPage = () => {
         </div>
       </section>
 
-      {/* Departure Dates Section */}
-      <section className="dates-section">
-        <div className="container">
-          <div className="dates-container">
-            <h3 className="dates-label">
-              Lähdöt
-            </h3>
-            <div className="dates-grid">
-              {trip.dateConfigurations.map((config, index) => (
-                <button
-                  key={config.date}
-                  onClick={() => setSelectedDateIndex(index)}
-                  className={cn(
-                    "date-badge",
-                    selectedDateIndex === index && "date-badge-selected"
-                  )}
-                >
-                  <Calendar className="w-3.5 h-3.5 text-primary" />
-                  <span className="date-text">{config.date}</span>
-                </button>
-              ))}
-              <button
-                onClick={() => setSelectedDateIndex("quote")}
-                className={cn(
-                  "date-badge date-badge-quote",
-                  selectedDateIndex === "quote" && "date-badge-selected"
-                )}
-              >
-                <span className="date-text">Pyydä tarjous!</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Trip Inclusions */}
       {(selectedConfig || quoteConfig) && (
@@ -345,6 +312,39 @@ const DestinationPage = () => {
                 </div>
               ))}
             </div>
+            
+            {/* Prices & Flight Module under "Matkan sisältö" */}
+            {selectedConfig && (
+              <div className="mt-8 pt-8 border-t border-border/50">
+                <div className="pricing-grid mb-8 max-w-none">
+                  <div className="price-card-primary">
+                    <div className="price-card-header">
+                      <Users className="w-6 h-6 text-primary" />
+                      <h3 className="price-card-title">Kahden hengen huone</h3>
+                    </div>
+                    <p className="price-card-amount">{selectedConfig.price.double} €</p>
+                    <p className="price-card-suffix">per henkilö</p>
+                  </div>
+
+                  <div className="price-card-secondary">
+                    <div className="price-card-header">
+                      <User className="w-6 h-6 text-primary" />
+                      <h3 className="price-card-title">Yhden hengen huone</h3>
+                    </div>
+                    <p className="price-card-amount">{selectedConfig.price.single} €</p>
+                    <p className="price-card-suffix">per henkilö</p>
+                  </div>
+                </div>
+
+                <div className="bg-white p-6 rounded-xl border border-border">
+                  <h4 className="font-semibold text-lg flex items-center gap-2 mb-4">
+                    <Plane className="text-primary w-5 h-5"/> Suorat lennot
+                  </h4>
+                  <p className="text-muted-foreground text-sm font-medium mb-1">Helsinki (HEL) - {trip.location} // {trip.location} - Helsinki (HEL)</p>
+                  <p className="text-muted-foreground text-sm">Hintaan sisältyy käsimatkatavara (10kg) ja ruumaan menevä laukku (23kg). Lento-aikataulut vahvistetaan myöhemmin.</p>
+                </div>
+              </div>
+            )}
           </div>
         </section>
       )}
@@ -381,7 +381,53 @@ const DestinationPage = () => {
                 <div className="tab-indicator" />
               )}
             </button>
+            <button
+              onClick={() => setActiveTab("info")}
+              className={cn(
+                "tab-button",
+                activeTab === "info"
+                  ? "tab-button-active"
+                  : "tab-button-inactive"
+              )}
+            >
+              Tietoa kohteesta
+              {activeTab === "info" && (
+                <div className="tab-indicator" />
+              )}
+            </button>
           </div>
+
+          {/* Info Tab Content */}
+          {activeTab === "info" && (
+            <div className="animate-fade-in py-8">
+              <div className="additional-info-grid">
+                <div className="links-card">
+                  <h3 className="links-title">Hyödyllisiä linkkejä</h3>
+                  <ul className="links-list">
+                    {trip.links.map((link, index) => (
+                      <li key={index}>
+                        <a href={link.url} target="_blank" rel="noopener noreferrer" className="link-item">
+                          <ExternalLink className="w-4 h-4" />
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {trip.additionalInfo && (
+                  <div className="info-card">
+                    <h3 className="links-title">Hyvä tietää</h3>
+                    {trip.additionalInfo.visa && (
+                      <div className="mb-4">
+                        <h4 className="font-semibold mb-2">Viisumi</h4>
+                        <p className="text-muted-foreground text-sm">{trip.additionalInfo.visa}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Resort Tab Content */}
           {activeTab === "resort" && (
@@ -552,7 +598,7 @@ const DestinationPage = () => {
       {(selectedConfig?.tourGuide || quoteConfig?.tourGuide) && (
         <section className="tour-guide-section">
           <div className="container">
-            <div className="tour-guide-card">
+            <div className="tour-guide-card bg-golf/5 border-none">
               <div className="tour-guide-content">
                 <User className="w-16 h-16 text-primary flex-shrink-0" />
                 <div>
@@ -573,44 +619,57 @@ const DestinationPage = () => {
       <section id="varaa" className="booking-section">
         <div className="container">
           <div className="booking-header">
-            <h2 className="booking-title">
-              Varaa matkasi
-            </h2>
-            <p className="booking-subtitle">
-              Täytä varauslomake alla tai soita meille suoraan
-            </p>
+            <div className="flex flex-col md:flex-row justify-between md:items-start gap-4">
+              <div>
+                <h2 className="booking-title text-left !mb-2">
+                  {selectedDateIndex === "quote" ? "Pyydä tarjous" : "Varaa matkasi"}
+                </h2>
+                <p className="booking-subtitle text-left">
+                  {selectedDateIndex === "quote"
+                    ? "Täytä alla oleva lomake niin räätälöimme juuri toiveisiisi sopivan matkan."
+                    : "Täytä varauslomake alla tai soita meille suoraan"}
+                </p>
+              </div>
+              
+              {selectedDateIndex !== "quote" && (
+                <Button 
+                  variant="hero" 
+                  size="lg" 
+                  className="whitespace-nowrap shrink-0"
+                  onClick={() => setSelectedDateIndex("quote")}
+                >
+                  Pyydä yksilöity tarjous!
+                </Button>
+              )}
+            </div>
+
+            {/* Departures selection inline in booking header */}
+            {selectedDateIndex !== "quote" && (
+              <div className="dates-container justify-start mt-8">
+                <h3 className="dates-label">
+                  Lähdöt
+                </h3>
+                <div className="dates-grid">
+                  {trip.dateConfigurations.map((config, index) => (
+                    <button
+                      key={config.date}
+                      onClick={() => setSelectedDateIndex(index)}
+                      className={cn(
+                        "date-badge",
+                        selectedDateIndex === index && "date-badge-selected"
+                      )}
+                    >
+                      <Calendar className="w-3.5 h-3.5 text-primary" />
+                      <span className="date-text">{config.date}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* Pricing Cards */}
-          {selectedConfig && (
-            <div className="pricing-grid">
-              <div className="price-card-primary">
-                <div className="price-card-header">
-                  <Users className="w-6 h-6 text-primary" />
-                  <h3 className="price-card-title">Kahden hengen huone</h3>
-                </div>
-                <p className="price-card-amount">{selectedConfig.price.double} €</p>
-                <p className="price-card-suffix">per henkilö</p>
-              </div>
-
-              <div className="price-card-secondary">
-                <div className="price-card-header">
-                  <User className="w-6 h-6 text-primary" />
-                  <h3 className="price-card-title">Yhden hengen huone</h3>
-                </div>
-                <p className="price-card-amount">{selectedConfig.price.single} €</p>
-                <p className="price-card-suffix">per henkilö</p>
-              </div>
-            </div>
-          )}
-
           {/* Booking Form */}
-          <div className="booking-embed-container">
-            <div className="booking-embed-header">
-              <h3 className="booking-embed-title">
-                {selectedDateIndex === "quote" ? "Tarjouspyyntö" : "Varauslomake"}
-              </h3>
-            </div>
+          <div className="booking-embed-container mt-8">
 
             {selectedDateIndex === "quote" ? (
               <QuoteRequestForm tripTitle={trip.title} />
@@ -650,45 +709,7 @@ const DestinationPage = () => {
         </div>
       </section>
 
-      {/* Additional Info & Links */}
-      <section className="additional-info-section">
-        <div className="container">
-          <div className="additional-info-grid">
-            {/* Useful Links */}
-            <div className="links-card">
-              <h3 className="links-title">Hyödyllisiä linkkejä</h3>
-              <ul className="links-list">
-                {trip.links.map((link, index) => (
-                  <li key={index}>
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-item"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
 
-            {/* Additional Info */}
-            {trip.additionalInfo && (
-              <div className="info-card">
-                <h3 className="links-title">Hyvä tietää</h3>
-                {trip.additionalInfo.visa && (
-                  <div className="mb-4">
-                    <h4 className="font-semibold mb-2">Viisumi</h4>
-                    <p className="text-muted-foreground text-sm">{trip.additionalInfo.visa}</p>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>

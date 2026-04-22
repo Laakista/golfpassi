@@ -125,13 +125,6 @@
 }
 
 /* Departure Dates Section */
-.dates-section {
-    padding: 1.5rem 0;
-    background-color: hsla(24, 100%, 50%, 0.05);
-    border-top: 1px solid hsla(24, 100%, 50%, 0.1);
-    border-bottom: 1px solid hsla(24, 100%, 50%, 0.1);
-}
-
 .dates-container {
     display: flex;
     flex-direction: column;
@@ -545,8 +538,7 @@
 }
 
 .booking-header {
-    text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .booking-title {
@@ -565,11 +557,10 @@
 }
 
 .booking-subtitle {
-    color: hsl(220, 10%, 45%);
+    color: hsla(0, 0%, 95%, 0.8);
     font-size: 1.125rem;
     line-height: 1.75rem;
     max-width: 42rem;
-    margin: 0 auto;
 }
 
 .pricing-grid {

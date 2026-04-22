@@ -137,7 +137,6 @@ export default function Teemamatkat() {
           {/* Filters */}
           <div className="pelimatkat-filters">
             <div className="filter-group">
-              <Filter className="filter-icon" />
               <select
                 value={selectedCountry}
                 onChange={(e) => setSelectedCountry(e.target.value)}

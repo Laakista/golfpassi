@@ -133,29 +133,34 @@ export function HeroCarousel() {
                   <p className="slide-location">
                     {slide.location}
                   </p>
-                  <div className="slide-dates">
-                    {slide.dates?.map((date) => (
-                      <span
-                        key={date}
-                        className="date-tag"
-                      >
+                  {/* Desktop dates (max 3 + leftover tag) */}
+                  <div className="slide-dates hidden md:flex">
+                    {slide.dates?.slice(0, 3).map((date) => (
+                      <span key={date} className="date-tag">
                         {date}
                       </span>
                     ))}
+                    {(slide.dates?.length || 0) > 3 && (
+                      <span className="date-tag bg-white/20">
+                        +{slide.dates!.length - 3} lähtöä
+                      </span>
+                    )}
+                  </div>
+                  {/* Mobile dates */}
+                  <div className="slide-dates md:hidden">
+                    <span className="date-tag">
+                      {slide.dates?.length || 0} lähtöä
+                    </span>
                   </div>
                 </>
               )}
 
               <div className="slide-actions">
                 <Button variant="hero" size="xl" asChild>
-                  <a href={slide.href}>{slide.isPromo ? "Tutustu" : "Varaa nyt"}</a>
+                  <a href={slide.href}>
+                    {slide.isPromo ? "Tutustu" : slide.price ? slide.price : "Varaa nyt"}
+                  </a>
                 </Button>
-                {!slide.isPromo && (
-                  <div className="price-container">
-                    <span className="price-label">Hinta</span>
-                    <p className="price-amount">{slide.price}</p>
-                  </div>
-                )}
               </div>
             </div>
           ))}

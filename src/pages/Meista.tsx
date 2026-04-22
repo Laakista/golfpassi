@@ -7,7 +7,7 @@ export default function Meista() {
   return (
     <div className="meista-page">
       <Header />
-      <main className="meista-main">
+      <main className="meista-main pt-24">
         <div className="meista-container">
           
           {/* Hero */}

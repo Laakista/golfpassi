@@ -95,10 +95,10 @@
 
 .slide-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-size: 2.25rem;
     font-weight: 700;
     color: white;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     line-height: 1.1;
     animation: fadeUp 0.5s ease-out 0.1s forwards;
     opacity: 0;
@@ -167,27 +167,20 @@
 
 .slide-actions {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     animation: fadeUp 0.5s ease-out 0.4s forwards;
     opacity: 0;
 }
 
-.price-container {
-    color: white;
+@media (min-width: 768px) {
+    .slide-actions {
+        gap: 1.5rem;
+    }
 }
 
-.price-label {
-    font-size: 0.875rem;
-    opacity: 0.75;
-    display: block;
-}
 
-.price-amount {
-    font-size: 1.875rem;
-    font-weight: 700;
-    color: hsl(24, 100%, 50%);
-}
 
 /* Navigation Arrows */
 .carousel-nav {
