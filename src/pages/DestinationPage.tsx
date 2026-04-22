@@ -16,7 +16,9 @@ import {
   Wind,
   Phone,
   Mail,
-  Star
+  Star,
+  ArrowLeft,
+  ArrowRight
 } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -217,11 +219,14 @@ Somabay Golfia pidetään yhtenä Egyptin parhaista golfkentistä. Tällä mesta
 
 const DestinationPage = () => {
   const { tripId } = useParams<{ tripId: string }>();
-  const [activeTab, setActiveTab] = useState<"resort" | "golf" | "info" | "map">("resort");
+  const [activeTab, setActiveTab] = useState<"resort" | "golf" | "info" | "gallery" | "map">("resort");
   const [selectedDateIndex, setSelectedDateIndex] = useState<number | "quote">(0);
+  const [galleryImageIndex, setGalleryImageIndex] = useState(0);
 
   // Get trip data - in production this would fetch from API
   const trip = tripId ? mockTripData[tripId] : null;
+
+  const galleryImages = trip ? [trip.heroImage, ...(trip.resort?.images || []), ...(trip.golfCourses?.flatMap(c => c.images) || [])].filter(Boolean) : [];
 
   // Get selected date configuration or quote configuration
   const selectedConfig = trip && selectedDateIndex !== "quote"
@@ -461,6 +466,20 @@ const DestinationPage = () => {
               )}
             </button>
             <button
+              onClick={() => setActiveTab("gallery")}
+              className={cn(
+                "tab-button",
+                activeTab === "gallery"
+                  ? "tab-button-active"
+                  : "tab-button-inactive"
+              )}
+            >
+              Galleria
+              {activeTab === "gallery" && (
+                <div className="tab-indicator" />
+              )}
+            </button>
+            <button
               onClick={() => setActiveTab("map")}
               className={cn(
                 "tab-button",
@@ -504,6 +523,51 @@ const DestinationPage = () => {
                     )}
                   </div>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* Gallery Tab Content */}
+          {activeTab === "gallery" && galleryImages.length > 0 && (
+            <div className="animate-fade-in py-8">
+              <div className="w-full h-[500px] bg-muted/20 rounded-xl overflow-hidden mb-4 relative flex items-center justify-center">
+                <img 
+                  src={galleryImages[galleryImageIndex]} 
+                  alt="Galleria" 
+                  className="w-full h-full object-cover transition-opacity duration-500"
+                />
+                
+                {/* Carousel controls */}
+                <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4">
+                  <button 
+                    onClick={() => setGalleryImageIndex(prev => prev === 0 ? galleryImages.length - 1 : prev - 1)}
+                    className="w-10 h-10 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-primary shadow-sm transition-colors"
+                  >
+                    <ArrowLeft className="w-5 h-5" />
+                  </button>
+                  <button 
+                    onClick={() => setGalleryImageIndex(prev => prev === galleryImages.length - 1 ? 0 : prev + 1)}
+                    className="w-10 h-10 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-primary shadow-sm transition-colors"
+                  >
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Thumbnails (hidden on mobile) */}
+              <div className="hidden md:grid grid-cols-5 lg:grid-cols-6 gap-4 mt-6">
+                {galleryImages.map((img, idx) => (
+                  <button 
+                    key={idx}
+                    onClick={() => setGalleryImageIndex(idx)}
+                    className={cn(
+                      "h-24 rounded-lg overflow-hidden border-2 transition-all",
+                      galleryImageIndex === idx ? "border-primary" : "border-transparent hover:border-primary/50 opacity-70 hover:opacity-100"
+                    )}
+                  >
+                    <img src={img} alt={`Thumbnail ${idx}`} className="w-full h-full object-cover" />
+                  </button>
+                ))}
               </div>
             </div>
           )}

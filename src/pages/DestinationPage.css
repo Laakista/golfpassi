@@ -212,7 +212,7 @@
 /* Trip Inclusions Section */
 .inclusions-section {
     padding: 4rem 0;
-    background-color: hsl(220, 15%, 93%);
+    background-color: #e7eee6;
 }
 
 .section-title {
@@ -588,12 +588,14 @@
     padding: 2rem;
     border-radius: 1rem;
     border: 2px solid hsla(24, 100%, 50%, 0.5);
+    background-color: hsl(0, 0%, 100%);
 }
 
 .price-card-secondary {
     padding: 2rem;
     border-radius: 1rem;
     border: 1px solid hsla(220, 15%, 85%, 1);
+    background-color: hsl(0, 0%, 100%);
 }
 
 .price-card-header {
