@@ -98,8 +98,7 @@
     background-color: hsla(24, 100%, 50%, 0.1);
     backdrop-filter: blur(12px);
     border: 1px solid hsla(24, 100%, 50%, 0.3);
-    border-right: 0;
-    border-radius: 0.75rem 0 0 0.75rem;
+    border-radius: 0.75rem;
     padding: 0.75rem 1.25rem;
     display: flex;
     align-items: center;
@@ -213,7 +212,7 @@
 /* Trip Inclusions Section */
 .inclusions-section {
     padding: 4rem 0;
-    background-color: hsla(220, 15%, 95%, 0.3);
+    background-color: hsl(220, 15%, 93%);
 }
 
 .section-title {

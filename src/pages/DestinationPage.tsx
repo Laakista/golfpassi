@@ -283,30 +283,23 @@ const DestinationPage = () => {
                 <span className="hero-price-label">alk.</span>
                 <span className="hero-price-value">{selectedConfig?.price.double || trip.dateConfigurations[0].price.double} €</span>
               </div>
-
-              <Button variant="hero" size="lg" className="hero-booking-button" asChild>
-                <a href="#varaa">Varaa nyt</a>
-              </Button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Departure Dates Section (Below Hero) */}
-      <section className="py-4 bg-muted/30 border-y border-border">
+      <section className="py-5 bg-orange-50 border-y border-border">
         <div className="container">
           <div className="dates-container md:flex-row md:items-center">
-            <h3 className="dates-label text-left">
-              Lähdöt
+            <h3 className="dates-label text-left text-lg font-bold tracking-wider">
+              LÄHDÖT
             </h3>
             <div className="dates-grid">
               {trip.dateConfigurations.map((config, index) => (
                 <button
                   key={config.date}
-                  onClick={() => {
-                    setSelectedDateIndex(index);
-                    document.getElementById('varaa')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
+                  onClick={() => setSelectedDateIndex(index)}
                   className={cn(
                     "date-badge",
                     selectedDateIndex === index && "date-badge-selected"
@@ -317,10 +310,7 @@ const DestinationPage = () => {
                 </button>
               ))}
               <button
-                onClick={() => {
-                  setSelectedDateIndex("quote");
-                  document.getElementById('varaa')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => setSelectedDateIndex("quote")}
                 className={cn(
                   "date-badge date-badge-quote",
                   selectedDateIndex === "quote" && "date-badge-selected"
