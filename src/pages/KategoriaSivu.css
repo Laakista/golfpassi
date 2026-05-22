@@ -6,13 +6,12 @@
 }
 
 .kategoria-main {
-    padding-top: 9.5rem;
+    padding-top: 5rem;
     padding-bottom: 3rem;
 }
 
 @media (min-width: 768px) {
     .kategoria-main {
-        padding-top: 10rem;
         padding-bottom: 5rem;
     }
 }

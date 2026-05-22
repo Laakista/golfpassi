@@ -6,14 +6,8 @@
 }
 
 .teemamatkat-main {
-    padding-top: 9.5rem;
+    padding-top: 5rem;
     padding-bottom: 5rem;
-}
-
-@media (min-width: 768px) {
-    .teemamatkat-main {
-        padding-top: 10rem;
-    }
 }
 
 .teemamatkat-container {
