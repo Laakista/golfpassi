@@ -1,4 +1,5 @@
-import { Award, Shield, Users, Headphones } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Award, Shield, Users, Headphones, ArrowRight } from "lucide-react";
 import "./WhyUs.css";
 import poppooImage from "@/assets/golfpassi-poppoo-2025.jpg";
 
@@ -36,10 +37,15 @@ export function WhyUs() {
               Huoletonta matkaa<br />
             </h2>
             <p className="why-us-description">
-              Golfpassi on Suomen golfmatkapiireissä tunnettu ja luotettu kumppani.
-              Meiltä löydät kattavan valikoiman laadukkaita golfmatkoja maailman
-              parhaisiin kohteisiin. Huolehdimme kaikesta – ota sinä rennosti!
+              Golfpassi on suomalainen perheyritys ja monen matkaajan luottokumppani.
+              Viemme sinut elämäsi parhaiden golfelämysten äärelle.
+              Tartu retkeen ja ota rennosti!
             </p>
+            <div className="mb-8 flex justify-center">
+              <Link to="/info/meista" className="text-secondary font-semibold hover:underline flex items-center gap-2">
+                Lue lisää meistä <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
             <div className="features-grid">
               {features.map((feature, index) => (
                 <div

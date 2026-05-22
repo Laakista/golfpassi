@@ -1,0 +1,89 @@
+/* Messut2027.css */
+
+.campaign-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background-image: url('https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.campaign-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4), transparent);
+}
+
+.campaign-hero-content {
+    position: relative;
+    z-index: 10;
+}
+
+.campaign-badge {
+    background-color: #ff7e00;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.campaign-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+    .campaign-title {
+        font-size: 4rem;
+    }
+}
+
+.campaign-subtitle {
+    font-size: 1.25rem;
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.campaign-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.offer-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid hsl(220, 15%, 90%);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .offer-card {
+        padding: 3rem;
+    }
+}
+
+.offer-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: #00a8ff;
+}

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Filter, MapPin, Calendar, Grid, List, CalendarDays } from "lucide-react";
+import { Filter, MapPin, Calendar, Grid, List, CalendarDays, SlidersHorizontal } from "lucide-react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CalendarView } from "@/components/trips/CalendarView";
-import "./Pelimatkat.css";
+import "./KategoriaSivu.css";
 
 import heroCostaNavarino from "@/assets/hero-costa-navarino.jpg";
 import heroBelek from "@/assets/hero-belek.jpg";
@@ -103,83 +103,94 @@ const trips = [
   },
 ];
 
-const countries = [
-  { value: "", label: "Kaikki maat" },
-  { value: "kreikka", label: "Kreikka" },
-  { value: "turkki", label: "Turkki" },
-  { value: "espanja", label: "Espanja" },
-  { value: "italia", label: "Italia" },
-];
+
 
 export default function Akkilahdot() {
   const [viewMode, setViewMode] = useState<"grid" | "list" | "calendar">("grid");
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const [sortBy, setSortBy] = useState<"date" | "name" | "price" | "duration">("date");
 
-  const filteredTrips = selectedCountry
-    ? trips.filter((trip) => trip.country === selectedCountry)
-    : trips;
+  const sortedTrips = [...trips].sort((a, b) => {
+    switch (sortBy) {
+      case "price":
+        return Number(a.price) - Number(b.price);
+      case "name":
+        return a.title.localeCompare(b.title);
+      case "duration": {
+        const getMinDuration = (d: string) => {
+          const match = d.match(/\d+/);
+          return match ? parseInt(match[0]) : 999;
+        };
+        return getMinDuration(a.duration) - getMinDuration(b.duration);
+      }
+      case "date":
+      default:
+        return new Date(a.startDate).getTime() - new Date(b.startDate).getTime();
+    }
+  });
 
   return (
-    <div className="pelimatkat-page">
+    <div className="kategoria-page">
       <Header />
-      <main className="pelimatkat-main">
-        <div className="pelimatkat-container">
+      <main className="kategoria-main">
+        <div className="kategoria-container">
           {/* Hero */}
-          <div className="pelimatkat-hero">
-            <h1 className="pelimatkat-title">
+          <div className="kategoria-hero">
+            <h1 className="kategoria-title">
               Äkkilähdöt
             </h1>
-            <p className="pelimatkat-description">
+            <p className="kategoria-description">
               Tartu tilaisuuteen ja lähde huippumatkalle heti.
             </p>
           </div>
 
           {/* Filters */}
-          <div className="pelimatkat-filters">
-            <div className="filter-group">
-              <select
-                value={selectedCountry}
-                onChange={(e) => setSelectedCountry(e.target.value)}
-                className="filter-select"
-              >
-                {countries.map((country) => (
-                  <option key={country.value} value={country.value}>
-                    {country.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="kategoria-filters">
             <div className="view-controls">
               <button
                 onClick={() => setViewMode("grid")}
-                className={`view-button ${viewMode === "grid" ? "view-button-active" : "view-button-inactive"
-                  }`}
+                className={`view-button ${viewMode === "grid" ? "view-button-active" : "view-button-inactive"}`}
+                title="Ruudukkonäkymä"
               >
                 <Grid className="view-icon" />
               </button>
               <button
                 onClick={() => setViewMode("list")}
-                className={`view-button ${viewMode === "list" ? "view-button-active" : "view-button-inactive"
-                  }`}
+                className={`view-button ${viewMode === "list" ? "view-button-active" : "view-button-inactive"}`}
+                title="Listanäkymä"
               >
                 <List className="view-icon" />
               </button>
               <button
                 onClick={() => setViewMode("calendar")}
-                className={`view-button ${viewMode === "calendar" ? "view-button-active" : "view-button-inactive"
-                  }`}
+                className={`view-button ${viewMode === "calendar" ? "view-button-active" : "view-button-inactive"}`}
+                title="Kalenterinäkymä"
               >
                 <CalendarDays className="view-icon" />
               </button>
             </div>
+
+              <div className="sort-controls">
+                <SlidersHorizontal className="sort-icon" />
+                <label className="sort-label">Järjestä:</label>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as any)}
+                  className="sort-select"
+                >
+                  <option value="date">Ajankohta</option>
+                  <option value="name">Nimi</option>
+                  <option value="price">Hinta</option>
+                  <option value="duration">Kesto</option>
+                </select>
+              </div>
           </div>
 
           {/* Trips Grid/List/Calendar */}
           {viewMode === "calendar" ? (
-            <CalendarView trips={filteredTrips} />
+            <CalendarView trips={sortedTrips} />
           ) : (
             <div className={viewMode === "grid" ? "trips-grid" : "trips-list"}>
-              {filteredTrips.map((trip, index) => (
+              {sortedTrips.map((trip, index) => (
                 viewMode === "grid" ? (
                   <Link
                     key={trip.id}
@@ -259,7 +270,7 @@ export default function Akkilahdot() {
             </div>
           )}
 
-          {filteredTrips.length === 0 && (
+          {sortedTrips.length === 0 && (
             <div className="no-results">
               <p className="no-results-text">
                 Ei matkoja valituilla hakuehdoilla.

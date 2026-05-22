@@ -1,0 +1,328 @@
+.kohteet-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.kohteet-main {
+  padding-top: 9.5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .kohteet-main {
+    padding-top: 10rem;
+  }
+}
+
+.kohteet-hero {
+  position: relative;
+  padding: 6rem 1.5rem 5rem;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kohteet-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.kohteet-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+    hsla(201, 100%, 20%, 0.75),
+    hsla(201, 100%, 30%, 0.5),
+    hsla(201, 100%, 40%, 0.3));
+  z-index: 1;
+}
+
+.kohteet-hero-overlay-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    hsla(201, 100%, 20%, 0.7),
+    transparent 60%,
+    hsla(201, 100%, 50%, 0.15));
+  z-index: 2;
+}
+
+.kohteet-hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.kohteet-hero .hero-title {
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.kohteet-hero .hero-description {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.country-group {
+  margin-bottom: 4rem;
+}
+
+/* Match category-group-title from Teemamatkat */
+.country-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: hsl(var(--secondary));
+  border-bottom: 2px solid hsl(var(--secondary));
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+  margin-top: 0;
+  text-align: center;
+}
+
+.destination-card {
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: box-shadow 0.2s;
+}
+
+.destination-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1024px) {
+  .destination-card {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.destination-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.destination-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.destination-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.destination-stars {
+  display: flex;
+  color: #fbbf24;
+}
+
+.destination-desc {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.destination-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.destination-tag {
+  background-color: #f1f5f9;
+  color: #334155;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+}
+
+.destination-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0ea5e9;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+  align-self: flex-start;
+}
+
+.destination-link:hover {
+  color: #0284c7;
+}
+
+.destination-image-col {
+  position: relative;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e2e8f0;
+}
+
+@media (min-width: 1024px) {
+  .destination-image-col {
+    border-top: none;
+    border-left: 1px solid #e2e8f0;
+  }
+}
+
+.destination-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.destination-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  color: white;
+  padding: 2rem 1.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Toolbar: search + view controls */
+.view-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.kohteet-search {
+  position: relative;
+  flex: 1;
+  max-width: 360px;
+}
+
+.kohteet-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.125rem;
+  height: 1.125rem;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.kohteet-search-input {
+  width: 100%;
+  padding: 0.6rem 1rem 0.6rem 2.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-size: 0.9rem;
+  color: #0f172a;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.kohteet-search-input:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+/* Departures row */
+.destination-departures {
+  grid-column: 1 / -1;
+  background-color: hsl(200, 80%, 96%);
+  border-top: 1px solid hsl(200, 60%, 90%);
+  padding: 1.25rem 2rem;
+}
+
+.departures-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: hsl(var(--secondary));
+  margin-bottom: 0.75rem;
+}
+
+.departures-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.departure-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: white;
+  border: 1px solid hsl(200, 60%, 88%);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  color: #334155;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.departure-chip:hover {
+  border-color: hsl(var(--primary));
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.departure-name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.departure-date {
+  color: #64748b;
+}
+
+.departure-price {
+  font-weight: 700;
+  color: hsl(24, 100%, 50%);
+}
+
+@media (max-width: 767px) {
+  .view-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kohteet-search {
+    max-width: none;
+    width: 100%;
+  }
+  .view-controls-bar .view-controls {
+    display: flex !important;
+    width: 100% !important;
+  }
+  .view-controls-bar .view-button {
+    flex: 1;
+    justify-content: center;
+  }
+}

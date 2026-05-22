@@ -1,0 +1,36 @@
+/* SivuaEiLoydy.css */
+
+.sivua-ei-loydy-page {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(220, 15%, 96%);
+}
+
+.sivua-ei-loydy-container {
+    text-align: center;
+}
+
+.sivua-ei-loydy-title {
+    margin-bottom: 1rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: hsl(220, 20%, 10%);
+}
+
+.sivua-ei-loydy-message {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: hsl(220, 10%, 45%);
+}
+
+.sivua-ei-loydy-link {
+    color: hsl(24, 100%, 50%);
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.sivua-ei-loydy-link:hover {
+    color: hsla(24, 100%, 50%, 0.9);
+}

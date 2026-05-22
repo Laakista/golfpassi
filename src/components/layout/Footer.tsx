@@ -5,26 +5,19 @@ import logoWhite from "@/assets/golfpassi-logo-2026.svg";
 
 const footerLinks = {
   matkat: [
-    { label: "Pelimatkat", href: "/pelimatkat" },
-    { label: "Yksilöidyt matkat", href: "/yksiloidyt-matkat" },
-    { label: "Opetusmatkat", href: "/opetusmatkat" },
-    { label: "Long Stay", href: "/long-stay" },
-    { label: "Teemamatkat", href: "/teemamatkat" },
+    { label: "Kaikki matkat", href: "/#booking-embed" },
+    { label: "Erilaisia elämyksiä", href: "/teemamatkat" },
     { label: "Äkkilähdöt", href: "/akkilahdot" },
-  ],
-  kohteet: [
-    { label: "Kreikka", href: "/kohteet/kreikka" },
-    { label: "Turkki", href: "/kohteet/turkki" },
-    { label: "Espanja", href: "/kohteet/espanja" },
-    { label: "Italia", href: "/kohteet/italia" },
-    { label: "Portugali", href: "/kohteet/portugali" },
+    { label: "Kohteet", href: "/kohteet" },
+    { label: "Pyydä tarjous", href: "/pyyda-tarjous" },
   ],
   info: [
+    { label: "Tiedotteet ja artikkelit", href: "/info/tiedotteet" },
+    { label: "Usein kysytyt kysymykset", href: "/ukk" },
     { label: "Tietoa meistä", href: "/info/meista" },
-    { label: "PGA Prot", href: "/info/pga-prot" },
-    { label: "UKK", href: "/ukk" },
-    { label: "Matkaehdot", href: "/info/matkaehdot" },
-    { label: "Tietosuoja", href: "/info/tietosuoja" },
+    { label: "Prot ja matkanjohtajat", href: "/info/pga-prot" },
+    { label: "Yhteystiedot", href: "/yhteys" },
+    { label: "Kirjaudu sisään", href: "/tili" },
   ],
 };
 
@@ -39,7 +32,7 @@ export function Footer() {
               <img src={logoWhite} alt="Golfpassi" className="footer-logo-image" />
             </Link>
             <p className="footer-description">
-              Intohimoinen golfmatkojen järjestäjä. Räätälöimme unelmien golfloman juuri sinulle.
+              Palvelustaan palkittu golfmatkojen järjestäjä ja luotettava suomalainen perheyritys.
             </p>
             <div className="footer-contact-info">
               <a href="tel:+35835151007" className="footer-contact-link">

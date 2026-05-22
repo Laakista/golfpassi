@@ -1,0 +1,143 @@
+/* Uutinen.css */
+
+.category-tag-news {
+    background-color: #00a8ff;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.article-hero-image-wrapper {
+    margin-bottom: 2rem;
+}
+
+.article-hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    font-size: 0.875rem;
+    color: hsl(220, 10%, 45%);
+    text-align: center;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.article-body {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: hsl(220, 20%, 10%);
+}
+
+.lead-paragraph {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    color: hsl(220, 20%, 15%);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .lead-paragraph {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+}
+
+.article-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .article-body h2 {
+        font-size: 2.25rem;
+        margin-top: 3rem;
+    }
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+.article-body ul {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.article-body li {
+    margin-bottom: 0.75rem;
+}
+
+.article-body blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: hsl(220, 15%, 98%);
+    border-left: 5px solid #00a8ff;
+    border-radius: 0 1rem 1rem 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: #1a1a1a;
+}
+
+@media (min-width: 768px) {
+    .article-body blockquote {
+        margin: 3rem 0;
+        padding: 2.5rem;
+        font-size: 1.5rem;
+    }
+}
+
+.article-body blockquote cite {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: normal;
+    margin-top: 1rem;
+    color: #00a8ff;
+}
+
+.tag-outline {
+    padding: 0.25rem 0.75rem;
+    border: 1px solid hsl(220, 15%, 90%);
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    color: hsl(220, 10%, 45%);
+}
+
+.social-share-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 1px solid hsl(220, 15%, 90%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(220, 10%, 45%);
+    transition: all 0.2s;
+    background: transparent;
+    cursor: pointer;
+}
+
+.social-share-btn:hover {
+    border-color: #00a8ff;
+    color: #00a8ff;
+    background-color: #f0f9ff;
+}
+
+.sidebar-card {
+    padding: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid hsl(220, 15%, 90%);
+}

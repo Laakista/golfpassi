@@ -1,0 +1,323 @@
+.pyyda-tarjous-page {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.pyyda-tarjous-main {
+  padding-top: 5rem;
+}
+
+/* ── Hero with background image ── */
+.pyyda-tarjous-hero {
+  position: relative;
+  padding: 6rem 1.5rem 5rem;
+  margin-bottom: 0;
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pyyda-tarjous-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.pyyda-tarjous-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+    hsla(201, 100%, 20%, 0.75),
+    hsla(201, 100%, 30%, 0.5),
+    hsla(201, 100%, 40%, 0.3));
+  z-index: 1;
+}
+
+.pyyda-tarjous-hero-overlay-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    hsla(201, 100%, 20%, 0.7),
+    transparent 60%,
+    hsla(201, 100%, 50%, 0.15));
+  z-index: 2;
+}
+
+.pyyda-tarjous-hero .hero-title {
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pyyda-tarjous-hero .hero-description {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Light blue form area ── */
+.pyyda-tarjous-form-area {
+  background-color: hsl(200, 80%, 96%);
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+/* ── Form card ── */
+.tarjous-form {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .tarjous-form {
+    padding: 2.5rem;
+  }
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.form-section-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.form-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.form-section-desc {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.form-input:focus, .form-textarea:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-divider {
+  margin: 2.5rem 0;
+  border: 0;
+  border-top: 1px dashed #cbd5e1;
+}
+
+/* ── Submit button – centered ── */
+.form-submit-container {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Custom icon colors ── */
+.bg-orange\/10 { background-color: rgba(249, 115, 22, 0.1); }
+.text-orange { color: #f97316; }
+
+.bg-blue\/10 { background-color: rgba(59, 130, 246, 0.1); }
+.text-blue { color: #3b82f6; }
+
+.bg-purple\/10 { background-color: rgba(168, 85, 247, 0.1); }
+.text-purple { color: #a855f7; }
+
+.bg-green\/10 { background-color: rgba(34, 197, 94, 0.1); }
+.text-green { color: #22c55e; }
+
+/* ── Compact destination list ── */
+.tarjous-destinations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tarjous-destination-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.2s;
+  position: relative;
+  background-color: #fafbfc;
+  cursor: pointer;
+}
+
+.tarjous-destination-card:hover {
+  border-color: hsl(201, 100%, 75%);
+}
+
+.tarjous-destination-selected {
+  border-color: hsl(var(--secondary));
+  background-color: hsl(200, 80%, 97%);
+}
+
+/* ── Corner selection badge ── */
+.tarjous-select-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0 0.7rem 0 0.5rem;
+  background-color: hsl(200, 70%, 88%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background-color 0.2s;
+}
+
+.tarjous-select-badge:hover {
+  background-color: hsl(200, 70%, 78%);
+}
+
+.tarjous-select-badge-active {
+  background-color: hsl(var(--secondary));
+}
+
+.tarjous-select-badge-active:hover {
+  background-color: hsl(var(--secondary-hover));
+}
+
+@media (min-width: 768px) {
+  .tarjous-destination-card {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Info column */
+.tarjous-dest-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.tarjous-dest-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.tarjous-dest-country {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.tarjous-dest-stars {
+  display: flex;
+  color: #fbbf24;
+  margin-top: 0.25rem;
+}
+
+/* Tutustu link */
+.tarjous-dest-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #f97316;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.2s, gap 0.2s;
+}
+
+.tarjous-dest-link:hover {
+  color: #ea580c;
+  gap: 0.55rem;
+}
+
+/* Image columns */
+.tarjous-dest-image-col {
+  position: relative;
+  height: 120px;
+  overflow: hidden;
+  border-top: 1px solid #e2e8f0;
+}
+
+@media (min-width: 768px) {
+  .tarjous-dest-image-col {
+    height: auto;
+    min-height: 100px;
+    border-top: none;
+    border-left: 1px solid #e2e8f0;
+  }
+}
+
+.tarjous-dest-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}

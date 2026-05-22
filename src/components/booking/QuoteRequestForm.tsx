@@ -259,7 +259,7 @@ export function QuoteRequestForm({ tripTitle }: QuoteRequestFormProps) {
                                 value={formData.additionalNotes}
                                 onChange={(e) => updateField("additionalNotes", e.target.value)}
                                 className="form-textarea"
-                                rows={8}
+                                rows={12}
                                 placeholder="Kerro meille tarkemmin toiveistasi: mitä haluaisit matkaan sisältyvän, erityistoiveet, rajoitteet, budjetti, jne."
                             />
                         </div>

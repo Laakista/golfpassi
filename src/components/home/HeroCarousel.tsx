@@ -29,7 +29,7 @@ const slides: Slide[] = [
     badge: "Kesä 2026",
     title: "Pohjoisen golfkesä",
     description: "Lennä suvituulen selässä lähikohteisiin. Muutaman tunnin päästä olet jo mailan varressa!",
-    href: "/pelimatkat",
+    href: "/#booking-embed",
     isPromo: true,
   },
   {
@@ -67,6 +67,10 @@ const slides: Slide[] = [
 export function HeroCarousel() {
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
 
   const goTo = useCallback((index: number) => {
     if (isAnimating) return;
@@ -83,13 +87,39 @@ export function HeroCarousel() {
     goTo((current - 1 + slides.length) % slides.length);
   }, [current, goTo]);
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    if (isLeftSwipe) {
+      next();
+    } else if (isRightSwipe) {
+      prev();
+    }
+  };
+
   useEffect(() => {
     const interval = setInterval(next, 6000);
     return () => clearInterval(interval);
   }, [next]);
 
   return (
-    <section className="hero-carousel">
+    <section 
+      className="hero-carousel"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       {/* Slides */}
       {slides.map((slide, index) => (
         <div

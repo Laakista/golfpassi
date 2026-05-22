@@ -5,18 +5,106 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import "./Yhteys.css";
 
-type ContactType = "palaute" | "tarjouspyynto" | "tiedustelu" | "tukipyynto";
+type ContactType = "palaute" | "tiedustelu" | "muu";
 
 const contactTypes: { value: ContactType; label: string }[] = [
   { value: "palaute", label: "Palaute" },
-  { value: "tarjouspyynto", label: "Tarjouspyyntö" },
   { value: "tiedustelu", label: "Tiedustelu" },
-  { value: "tukipyynto", label: "Tukipyyntö" },
+  { value: "muu", label: "Muu" },
+];
+
+const contactPersons = [
+  {
+    name: "Juha Passi",
+    role: "CEO & PGA Pro",
+    email: "juha.passi@golfpassi.fi",
+    phone: "+358 400 634 130",
+    image: "/people/Juha-Passi-800x800-1-480x480.jpg"
+  },
+  {
+    name: "Hanna Urrila",
+    role: "COO & Partner",
+    email: "hanna.urrila@golfpassi.fi",
+    phone: "+358 40 515 8063",
+    image: "/people/Hanna-Urrila-800x800-2-480x480.jpg"
+  },
+  {
+    name: "Mia Kanerva",
+    role: "Sales & Product Executive",
+    email: "mia.kanerva@golfpassi.fi",
+    phone: "+358 40 8472721",
+    phone2: "+358 3 515 1007",
+    image: "/people/Mia-Kanerva-800x800-1-480x480.jpg"
+  },
+  {
+    name: "Kasper Virta",
+    role: "Sales & Production",
+    email: "kasper.virta@golfpassi.fi",
+    phone: "+358 40 624 5442",
+    image: "/people/Kasper-Virta-800x800-2-480x480.jpg"
+  },
+  {
+    name: "Lotta Mykkänen",
+    role: "Sales & Production",
+    email: "lotta.mykkanen@golfpassi.fi",
+    phone: "+358 40 847 8129",
+    image: "/people/Lotta-Mykkanen-1-480x480.jpg"
+  },
+  {
+    name: "Minna Lintukangas",
+    role: "Group Sales & Production",
+    email: "minna.lintukangas@golfpassi.fi",
+    phone: "+358 50 073 7791",
+    image: "/people/Minna-Lintukangas-800x800-1-480x480.jpg"
+  },
+  {
+    name: "Arja Salahetdin",
+    role: "Flight Service Manager",
+    email: "",
+    phone: "",
+    image: "/people/Arja-Salahetdin-800x800-1-480x480.jpg"
+  },
+  {
+    name: "Teemu Keskinen",
+    role: "Sales & Customer Service",
+    email: "toimisto@golfpassi.fi",
+    phone: "+358 3 515 1007",
+    image: "/people/Teemu-Keskinen-800x800-1-480x480.jpg"
+  },
+  {
+    name: "Mandi Plith",
+    role: "Sales & Customer Service",
+    email: "toimisto@golfpassi.fi",
+    phone: "+358 3 515 1007",
+    image: "/people/Mandi-Plith-800x800-1-480x480.jpg"
+  },
+  {
+    name: "Tuula Urrila-Koppanen",
+    role: "Sales & Customer Service",
+    email: "toimisto@golfpassi.fi",
+    phone: "+358 3 515 1007",
+    image: "/people/Tuula2-480x480.jpg"
+  },
+  {
+    name: "Jani Kinnunen",
+    role: "Marketing Specialist",
+    email: "jani.kinnunen@golfpassi.fi",
+    phone: "+358 3 515 1007",
+    image: "/people/jani-kinnunen-413x480.jpg"
+  },
+  {
+    name: "Annamari Viita",
+    role: "Graphic Designer / Marketing",
+    email: "annamari.viita@golfpassi.fi",
+    phone: "+358 3 515 1007",
+    image: "/people/Annamari-viita-800x800-1-480x480.jpg"
+  }
 ];
 
 export default function Yhteys() {
   const [contactType, setContactType] = useState<ContactType>("tiedustelu");
   const [submitted, setSubmitted] = useState(false);
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -44,10 +132,10 @@ export default function Yhteys() {
   return (
     <div className="yhteys-page">
       <Header />
-      <main className="yhteys-main">
+      <main className="yhteys-main pt-40">
         <div className="yhteys-container">
           {/* Hero */}
-          <div className="yhteys-hero">
+          <div className="yhteys-hero mb-16">
             <h1 className="yhteys-title">
               Ota yhteyttä
             </h1>
@@ -57,8 +145,8 @@ export default function Yhteys() {
           </div>
 
           <div className="yhteys-grid">
-            {/* Contact Info */}
-            <div className="space-y-6">
+            {/* Contact Info & Map */}
+            <div className="yhteys-info-map-column flex flex-col h-full">
               <div className="yhteys-info-card">
                 <h3 className="yhteys-card-title">
                   Yhteystiedot
@@ -89,29 +177,42 @@ export default function Yhteys() {
                     </div>
                   </a>
                   <div className="yhteys-info-item">
+                    <div className="yhteys-icon-box icon-box-purple">
+                      <Clock className="icon-purple" />
+                    </div>
+                    <div>
+                      <p className="yhteys-info-label">Toimisto palvelee</p>
+                      <p className="yhteys-info-value">Ma-Pe 9:00-16:00</p>
+                    </div>
+                  </div>
+                  <div className="yhteys-info-item">
                     <div className="yhteys-icon-box icon-box-golf">
                       <MapPin className="icon-golf" />
                     </div>
                     <div>
                       <p className="yhteys-info-label">Osoite</p>
-                      <p className="yhteys-info-value">Tampere, Finland</p>
-                    </div>
-                  </div>
-                  <div className="yhteys-info-item">
-                    <div className="yhteys-icon-box icon-box-turquoise">
-                      <Clock className="icon-turquoise" />
-                    </div>
-                    <div>
-                      <p className="yhteys-info-label">Aukioloajat</p>
-                      <p className="yhteys-info-value">Ma-Pe 9:00-16:00</p>
+                      <p className="yhteys-info-value">Tupurlantie 7, 38420 Sastamala</p>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {/* Map Embed */}
+              <div className="yhteys-map-wrapper flex-grow min-h-[400px]">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1981.6521364505036!2d23.0035544!3d61.3414988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4688cf6473f32c3f%3A0x7d6a5d7d3d7d7d7d!2sTupurlantie%207%2C%2038420%20Sastamala!5e0!3m2!1sfi!2sfi!4v1715850000000!5m2!1sfi!2sfi"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, borderRadius: '1rem' }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="yhteys-form-container">
+            {/* Contact Form & Contact Persons */}
+            <div className="yhteys-form-container space-y-8">
               <div className="yhteys-form-card">
                 {!submitted ? (
                   <>
@@ -180,66 +281,7 @@ export default function Yhteys() {
                         />
                       </div>
 
-                      {/* Conditional fields based on contact type */}
-                      {contactType === "tarjouspyynto" && (
-                        <div className="form-grid-3">
-                          <div className="form-group">
-                            <label className="form-label">
-                              Kohde
-                            </label>
-                            <input
-                              type="text"
-                              name="tripDestination"
-                              value={formData.tripDestination}
-                              onChange={handleChange}
-                              placeholder="Esim. Kreikka"
-                              className="form-input"
-                            />
-                          </div>
-                          <div className="form-group">
-                            <label className="form-label">
-                              Ajankohta
-                            </label>
-                            <input
-                              type="text"
-                              name="travelDates"
-                              value={formData.travelDates}
-                              onChange={handleChange}
-                              placeholder="Esim. Maaliskuu 2026"
-                              className="form-input"
-                            />
-                          </div>
-                          <div className="form-group">
-                            <label className="form-label">
-                              Ryhmäkoko
-                            </label>
-                            <input
-                              type="text"
-                              name="groupSize"
-                              value={formData.groupSize}
-                              onChange={handleChange}
-                              placeholder="Esim. 4 henkilöä"
-                              className="form-input"
-                            />
-                          </div>
-                        </div>
-                      )}
-
-                      {contactType === "tukipyynto" && (
-                        <div className="form-group">
-                          <label className="form-label">
-                            Varausnumero
-                          </label>
-                          <input
-                            type="text"
-                            name="bookingNumber"
-                            value={formData.bookingNumber}
-                            onChange={handleChange}
-                            placeholder="Esim. GP2024-1234"
-                            className="form-input"
-                          />
-                        </div>
-                      )}
+                      {/* Conditional fields are removed */}
 
                       <div className="form-group">
                         <label className="form-label">
@@ -263,7 +305,7 @@ export default function Yhteys() {
                           value={formData.message}
                           onChange={handleChange}
                           required
-                          rows={5}
+                          rows={8}
                           className="form-textarea"
                         />
                       </div>
@@ -288,6 +330,52 @@ export default function Yhteys() {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+
+          {/* Contact Persons */}
+          <div id="yhteyshenkilot" className="yhteys-persons-section">
+            <h2 className="yhteys-section-title text-center">Yhteyshenkilöt</h2>
+            <div className="yhteys-persons-grid">
+              {contactPersons.map((person, index) => (
+                <div key={index} className="contact-person-card">
+                  <div className="person-image-wrapper">
+                    {person.image && !imageErrors[index] ? (
+                      <img
+                        src={person.image}
+                        alt={person.name}
+                        className="person-image"
+                        onError={() => setImageErrors(prev => ({ ...prev, [index]: true }))}
+                      />
+                    ) : (
+                      <div className="person-placeholder">
+                        {person.name.split(" ").map(n => n[0]).join("")}
+                      </div>
+                    )}
+                  </div>
+                  <div className="person-info">
+                    <h3 className="person-name">{person.name}</h3>
+                    <p className="person-role">{person.role}</p>
+                    <div className="person-contacts">
+                      {person.email && (
+                        <a href={`mailto:${person.email}`} className="person-contact-link email">
+                          {person.email}
+                        </a>
+                      )}
+                      {person.phone && (
+                        <a href={`tel:${person.phone.replace(/\s+/g, '')}`} className="person-contact-link phone">
+                          {person.phone}
+                        </a>
+                      )}
+                      {person.phone2 && (
+                        <a href={`tel:${person.phone2.replace(/\s+/g, '')}`} className="person-contact-link phone">
+                          {person.phone2}
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

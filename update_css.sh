@@ -1,0 +1,22 @@
+#!/bin/bash
+FILE="src/pages/DestinationPage.css"
+
+# Replace hero-price-box
+perl -0777 -pi -e 's/\.hero-price-box \{[\s\S]*?\}/\.hero-price-box \{\n    background-color: hsl(0, 0%, 100%);\n    box-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.1);\n    border: none;\n    border-radius: 0.75rem;\n    padding: 0.75rem 1.25rem;\n    display: flex;\n    align-items: center;\n    gap: 0.5rem;\n\}/g' "$FILE"
+
+perl -0777 -pi -e 's/\.hero-price-label \{[\s\S]*?\}/\.hero-price-label \{\n    color: #00a8ff;\n    font-size: 1rem;\n    line-height: 1.5rem;\n    font-weight: 500;\n\}/g' "$FILE"
+
+# Replace inclusions-grid and inclusion-item
+perl -0777 -pi -e 's/\.inclusions-grid \{[\s\S]*?\.inclusion-item:hover \{[\s\S]*?\}/\.inclusions-grid \{\n    display: grid;\n    gap: 4px;\n\}\n\n\@media (min-width: 768px) \{\n    .inclusions-grid \{\n        grid-template-columns: repeat(2, 1fr);\n    \}\n\}\n\n\@media (min-width: 1024px) \{\n    .inclusions-grid \{\n        grid-template-columns: repeat(3, 1fr);\n    \}\n\}\n\n\.inclusion-item \{\n    position: relative;\n    display: flex;\n    align-items: center;\n    background-color: hsl(0, 0%, 100%);\n    padding: 1.5rem;\n    padding-top: 2.5rem;\n    border-radius: 0.5rem;\n    border: 1px solid hsl(220, 15%, 90%);\n    transition: border-color 300ms;\n    overflow: hidden;\n\}\n\n\.inclusion-item-icon-wrapper \{\n    position: absolute;\n    top: 0;\n    left: 0;\n    background-color: #00a8ff;\n    padding: 0.35rem 0.5rem 0.5rem 0.35rem;\n    border-bottom-right-radius: 0.5rem;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\}\n\n\.inclusion-item:hover \{\n    border-color: hsla(24, 100%, 50%, 0.5);\n\}/g' "$FILE"
+
+# Replace tab styles
+perl -0777 -pi -e 's/\.tab-icon \{[\s\S]*?\}/\.tab-icon \{\n    width: 1.5rem;\n    height: 1.5rem;\n    margin-bottom: 0.25rem;\n\}/g' "$FILE"
+
+perl -0777 -pi -e 's/\.tab-button \{[\s\S]*?\}/\.tab-button \{\n    display: flex;\n    flex: 1;\n    flex-direction: column;\n    align-items: center;\n    padding-bottom: 1rem;\n    padding-left: 1rem;\n    padding-right: 1rem;\n    font-weight: 600;\n    font-size: 0.875rem;\n    line-height: 1.25rem;\n    transition: all 300ms;\n    position: relative;\n    background: none;\n    border: none;\n    cursor: pointer;\n\}/g' "$FILE"
+
+# Replace tour guide styles
+perl -0777 -pi -e 's/\.tour-guide-card \{[\s\S]*?\}\n\n\.tour-guide-content \{[\s\S]*?\}\n\n\.tour-guide-name \{[\s\S]*?\}\n\n\.tour-guide-other-trips \{[\s\S]*?\}/\.tour-guide-card \{\n    background-color: hsl(0, 0%, 100%);\n    border-radius: 1rem;\n    border: 1px solid hsl(220, 15%, 90%);\n    overflow: hidden;\n    display: flex;\n    flex-direction: column;\n\}\n\n\@media (min-width: 768px) \{\n    .tour-guide-card \{\n        flex-direction: row;\n    \}\n\}\n\n\.tour-guide-image-container \{\n    width: 100%;\n    aspect-ratio: 3\/4;\n    position: relative;\n    background-color: #f1f5f9;\n\}\n\n\@media (min-width: 768px) \{\n    .tour-guide-image-container \{\n        width: 300px;\n        flex-shrink: 0;\n        aspect-ratio: auto;\n    \}\n\}\n\n\.tour-guide-image \{\n    position: absolute;\n    inset: 0;\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n\}\n\n\.tour-guide-content-wrapper \{\n    padding: 2rem;\n    flex: 1;\n    display: flex;\n    flex-direction: column;\n\}\n\n\@media (min-width: 1024px) \{\n    .tour-guide-content-wrapper \{\n        flex-direction: row;\n        gap: 2rem;\n    \}\n\}\n\n\.tour-guide-info \{\n    flex: 1;\n\}\n\n\.tour-guide-name \{\n    font-size: 1.25rem;\n    line-height: 1.75rem;\n    font-weight: 600;\n    color: #00a8ff;\n    margin-bottom: 0.75rem;\n\}\n\n\.tour-guide-other-trips \{\n    width: 100%;\n    margin-top: 1.5rem;\n    overflow: hidden;\n\}\n\n\@media (min-width: 1024px) \{\n    .tour-guide-other-trips \{\n        width: 250px;\n        margin-top: 0;\n        padding-left: 1.5rem;\n        border-left: 1px solid hsl(220, 15%, 90%);\n    \}\n\}\n\n\.tour-guide-other-trips-title \{\n    font-size: 0.875rem;\n    font-weight: 700;\n    text-transform: uppercase;\n    letter-spacing: 0.05em;\n    color: hsl(24, 100%, 50%);\n    margin-bottom: 0;\n\}/g' "$FILE"
+
+# Replace booking embed container
+perl -0777 -pi -e 's/\.booking-embed-container \{[\s\S]*?\}/\.booking-embed-container \{\n    background-color: hsl(0, 0%, 100%);\n    background: linear-gradient(225deg, rgba(0,168,255,0.08) 0%, white 35%);\n    border-radius: 1rem;\n    overflow: hidden;\n    border: 1px solid hsl(220, 15%, 90%);\n\}/g' "$FILE"
+

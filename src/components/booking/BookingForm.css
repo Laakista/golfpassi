@@ -3,7 +3,7 @@
 .booking-form-container {
     background-color: hsl(0, 0%, 100%);
     border-radius: 1rem;
-    padding: 2.5rem;
+    padding: 1.25rem;
     border: 1px solid hsl(220, 15%, 90%);
 }
 
@@ -27,15 +27,23 @@
 }
 
 .progress-circle {
-    width: 3rem;
-    height: 3rem;
+    width: 2.25rem;
+    height: 2.25rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.875rem;
     transition: all 0.3s;
+}
+
+@media (min-width: 640px) {
+    .progress-circle {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
 }
 
 .progress-circle-completed {
@@ -55,9 +63,15 @@
 }
 
 .progress-line {
-    width: 4rem;
+    width: 2rem;
     height: 2px;
     transition: all 0.3s;
+}
+
+@media (min-width: 640px) {
+    .progress-line {
+        width: 4rem;
+    }
 }
 
 .progress-line-completed {

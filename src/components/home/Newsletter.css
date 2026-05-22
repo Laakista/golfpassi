@@ -3,15 +3,22 @@
 .newsletter-section {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background: linear-gradient(to right, hsla(24, 100%, 50%, 0.1), hsla(24, 100%, 50%, 0.05), hsla(220, 25%, 12%, 0.1));
+    background: #ff660014;
 }
 
 .newsletter-container {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+    .newsletter-container {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -96,6 +103,35 @@
     top: 50%;
     transform: translateY(-50%);
     border-radius: 0 0.75rem 0.75rem 0 !important;
+}
+
+@media (max-width: 639px) {
+    .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        overflow: visible;
+        border-radius: 0;
+        max-width: 18rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    .newsletter-input {
+        padding: 1rem 1.5rem;
+        border-radius: 0.75rem !important;
+    }
+
+    .newsletter-submit-button {
+        position: static;
+        transform: none;
+        width: 100%;
+        border-radius: 0.75rem !important;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        height: auto;
+    }
 }
 
 /* Success Message */

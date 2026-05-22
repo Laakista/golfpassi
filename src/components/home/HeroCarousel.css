@@ -33,13 +33,13 @@
 .slide-overlay-left {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, hsla(220, 25%, 12%, 0.9), hsla(220, 25%, 12%, 0.5), transparent);
+    background: linear-gradient(to right, hsla(201, 100%, 20%, 0.8), hsla(201, 100%, 30%, 0.4), transparent);
 }
 
 .slide-overlay-bottom {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, hsla(220, 25%, 12%, 0.8), transparent, hsla(220, 25%, 12%, 0.3));
+    background: linear-gradient(to top, hsla(201, 100%, 20%, 0.7), transparent, hsla(201, 100%, 50%, 0.2));
 }
 
 /* Content */
@@ -49,11 +49,18 @@
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     display: flex;
     align-items: center;
     padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+    .carousel-content-container {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -64,7 +71,13 @@
 
 .carousel-text-wrapper {
     max-width: 42rem;
-    padding-top: 8rem;
+    padding-top: 5rem;
+}
+
+@media (min-width: 768px) {
+    .carousel-text-wrapper {
+        padding-top: 8rem;
+    }
 }
 
 .carousel-slide-content {
@@ -184,12 +197,18 @@
 
 /* Navigation Arrows */
 .carousel-nav {
+    display: none;
     position: absolute;
     bottom: 2rem;
     right: 2rem;
-    display: flex;
     align-items: center;
     gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .carousel-nav {
+        display: flex;
+    }
 }
 
 .nav-button {

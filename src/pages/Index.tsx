@@ -14,9 +14,8 @@ const Index = () => {
       <Header />
       <main className="index-main">
         <HeroCarousel />
-        <TripCategories />
-        <FeaturedTrips />
         <BookingEmbed />
+        <TripCategories />
         <WhyUs />
         <Newsletter />
       </main>

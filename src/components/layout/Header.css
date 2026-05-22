@@ -10,22 +10,29 @@
 
 /* Top Bar */
 .top-bar {
-    background-color: hsl(220, 25%, 12%);
-    color: hsl(0, 0%, 95%);
+    background-color: #00a8ff !important;
+    color: white !important;
 }
 
 .top-bar-container {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+    .top-bar-container {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -56,7 +63,7 @@
 }
 
 .contact-link:hover {
-    color: hsl(24, 100%, 50%);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .contact-icon {
@@ -65,9 +72,10 @@
 }
 
 .black-friday-link {
-    color: hsl(24, 100%, 50%);
+    color: white;
     font-weight: 600;
     text-decoration: none;
+    opacity: 0.9;
 }
 
 .black-friday-link:hover {
@@ -76,22 +84,30 @@
 
 /* Main Nav */
 .main-nav {
-    background-color: hsla(220, 25%, 12%, 0.8);
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid hsla(220, 15%, 90%, 0.2);
+    border-bottom: 1px solid hsla(220, 15%, 90%, 0.8);
 }
 
 .nav-container {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 2rem;
-    padding-left: 2rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .nav-container {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -108,7 +124,8 @@
 }
 
 .logo-image {
-    height: 1.8rem;
+    height: 2.2rem;
+    margin-top: -14px;
     width: auto;
     object-fit: contain;
 }
@@ -127,7 +144,7 @@
 }
 
 .nav-item-wrapper {
-    position: relative;
+    /* removed position: relative so mega menu can be positioned relative to main-nav */
 }
 
 .nav-link {
@@ -137,7 +154,7 @@
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: hsl(0, 0%, 95%);
+    color: hsl(220, 20%, 10%);
     transition: color 0.2s;
     text-decoration: none;
 }
@@ -157,32 +174,75 @@
     position: absolute;
     top: 100%;
     left: 0;
-    padding-top: 0.5rem;
+    width: 100%;
     animation: fadeIn 0.2s ease-out;
+    border-top: 1px solid hsla(220, 15%, 90%, 0.8);
 }
 
 .mega-menu-content {
-    background-color: hsl(0, 0%, 100%);
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    border: 1px solid hsl(220, 15%, 90%);
-    padding: 1rem;
-    min-width: 200px;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.75rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.mega-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    position: relative;
+    flex: 1;
+    max-width: 280px;
+}
+
+/* Light divider between columns */
+.mega-menu-column+.mega-menu-column::before {
+    content: '';
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: hsla(220, 15%, 90%, 0.8);
+}
+
+.mega-menu-column-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: hsl(201, 100%, 50%);
+    margin-bottom: 0.25rem;
+}
+
+.mega-menu-column-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .mega-menu-link {
-    display: block;
-    padding: 0.5rem 1rem;
     font-size: 0.875rem;
+    font-weight: 500;
     color: hsl(220, 20%, 10%);
-    border-radius: 0.375rem;
-    transition: background-color 0.2s, color 0.2s;
+    transition: color 0.2s ease;
     text-decoration: none;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    display: inline-block;
 }
 
 .mega-menu-link:hover {
     color: hsl(24, 100%, 50%);
-    background-color: hsl(220, 15%, 96%);
+    background: transparent;
+    transform: none;
+    box-shadow: none;
 }
 
 /* CTA Buttons */
@@ -199,7 +259,7 @@
 }
 
 .search-button {
-    color: hsl(0, 0%, 95%);
+    color: hsl(220, 20%, 10%);
 }
 
 .search-icon {
@@ -207,10 +267,58 @@
     height: 1.25rem;
 }
 
+.round-nav-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.round-nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cart-button {
+    background-color: hsl(24, 100%, 50%);
+}
+
+.cart-button:hover {
+    background-color: hsl(24, 100%, 45%);
+}
+
+.account-button {
+    background-color: #00a8ff;
+}
+
+.account-button:hover {
+    background-color: #0096e6;
+}
+
+.nav-mascot-wrapper {
+    margin-left: 1.5rem;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-mascot-image {
+    height: 90px;
+    margin-bottom: -29px;
+    margin-top: -34px;
+    width: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
 /* Mobile Menu Button */
 .mobile-menu-button {
     display: block;
-    color: hsl(0, 0%, 95%);
+    color: hsl(220, 20%, 10%);
     padding: 0.5rem;
     background: none;
     border: none;
@@ -231,9 +339,11 @@
 /* Mobile Menu */
 .mobile-menu {
     display: block;
-    background-color: hsl(220, 25%, 12%);
-    border-top: 1px solid hsla(220, 15%, 90%, 0.2);
+    background-color: hsl(0, 0%, 100%);
+    border-top: 1px solid hsl(220, 15%, 90%);
     animation: fadeIn 0.2s ease-out;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
 }
 
 @media (min-width: 1024px) {
@@ -258,7 +368,7 @@
 .mobile-nav-link {
     display: block;
     padding: 0.75rem 1rem;
-    color: hsl(0, 0%, 95%);
+    color: hsl(220, 20%, 10%);
     transition: color 0.2s;
     text-decoration: none;
 }
@@ -303,4 +413,113 @@
     to {
         opacity: 1;
     }
+}
+
+/* Search Dropdown */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    animation: fadeIn 0.2s ease-out;
+    border-top: 1px solid hsla(220, 15%, 90%, 0.8);
+    z-index: 40;
+}
+
+.search-dropdown-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    width: 100%;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.search-dropdown-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: hsl(201, 100%, 50%);
+    white-space: nowrap;
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    max-width: 500px;
+}
+
+.search-field-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem 2.5rem 0.5rem 1.25rem;
+    border-radius: 9999px;
+    border: 1px solid hsla(220, 15%, 80%, 0.8);
+    background-color: white;
+    font-size: 0.875rem;
+    color: hsl(220, 20%, 10%);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.search-field-icon {
+    position: absolute;
+    right: 1.15rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: hsl(220, 10%, 45%);
+    pointer-events: none;
+}
+
+.search-input:focus {
+    border-color: hsl(24, 100%, 50%);
+    box-shadow: 0 0 0 2px hsla(24, 100%, 50%, 0.15);
+}
+
+.search-close-button {
+    color: hsl(220, 10%, 45%);
+    transition: color 0.2s;
+    padding: 0.25rem;
+}
+
+.search-close-button:hover {
+    color: hsl(24, 100%, 50%);
+    background-color: transparent !important;
+}
+
+.search-button.active {
+    color: hsl(24, 100%, 50%) !important;
+}
+
+/* Color-coded mega menu column titles */
+.mega-menu-column-title.group-title-blue,
+.mobile-menu-container .group-title-blue {
+    color: #00a8ff !important;
+}
+
+.mega-menu-column-title.group-title-orange,
+.mobile-menu-container .group-title-orange {
+    color: #ff7e00 !important;
+}
+
+.mega-menu-column-title.group-title-purple,
+.mobile-menu-container .group-title-purple {
+    color: #a855f7 !important;
+}
+
+.mega-menu-column-title.group-title-green,
+.mobile-menu-container .group-title-green {
+    color: hsl(142, 71%, 45%) !important;
 }

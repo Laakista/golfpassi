@@ -52,11 +52,13 @@
 
 /* Special Cards */
 .intro-card {
-  @apply bg-golf/5 border-golf/20 max-w-4xl mx-auto;
+  background-color: #00a8ff26;
+  @apply border-golf/20 max-w-4xl mx-auto;
 }
 
 .award-card {
-  @apply bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-center max-w-4xl mx-auto;
+  background-color: #fff7ed; /* Subtle orange background */
+  @apply border-orange-200 text-center max-w-4xl mx-auto;
 }
 
 /* Lists */

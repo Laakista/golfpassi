@@ -22,7 +22,7 @@ const trips = [
     startDate: "2026-03-15",
     duration: "7 tai 14 vrk",
     price: 2245,
-    type: "Pelimatka",
+    type: "Pelimatkat",
     tags: ["Rantakohde", "Luksus", "TOP-kentät", "Rajaton golf"],
     persons: 1,
     rooms: 1,
@@ -40,7 +40,7 @@ const trips = [
     startDate: "2026-04-10",
     duration: "7 tai 14 vrk",
     price: 2070,
-    type: "Pelimatka",
+    type: "Pelimatkat",
     tags: ["All Inclusive", "Rantakohde", "Paras vastine rahoille", "Rajaton golf"],
     persons: 1,
     rooms: 1,
@@ -56,7 +56,7 @@ const trips = [
     startDate: "2026-03-20",
     duration: "7 tai 14 vrk",
     price: 1650,
-    type: "Pelimatka",
+    type: "Pelimatkat",
     tags: ["Puolihoito", "Rantakohde", "Paras vastine rahoille"],
     persons: 1,
     rooms: 1,
@@ -74,7 +74,7 @@ const trips = [
     startDate: "2026-03-25",
     duration: "7 tai 14 vrk",
     price: 1875,
-    type: "Pelimatka",
+    type: "Pelimatkat",
     tags: ["Uutuus", "Luontokohde", "Kulttuurikohde", "TOP-kentät"],
     persons: 1,
     rooms: 1,
@@ -83,14 +83,14 @@ const trips = [
   {
     id: "5",
     image: heroBelek,
-    title: "Gloria Golf Resort",
+    title: "Gloria Golf Resort – PRO Henrik",
     location: "Belek, Turkki",
     country: "Turkki",
     dates: "Maaliskuu 2026",
     startDate: "2026-03-05",
     duration: "7 vrk",
     price: 1890,
-    type: "Opetusmatka",
+    type: "Pron matkassa",
     tags: ["All Inclusive", "Pron matkassa", "Rantakohde", "Resortloma"],
     persons: 1,
     rooms: 1,
@@ -99,22 +99,38 @@ const trips = [
   {
     id: "6",
     image: heroMallorca,
-    title: "Son Gual Golf",
+    title: "Son Gual Golf – Long Stay",
     location: "Mallorca, Espanja",
     country: "Espanja",
     dates: "Huhtikuu 2026",
     startDate: "2026-04-15",
-    duration: "7 vrk",
+    duration: "21 vrk",
     price: 1950,
-    type: "Long stay",
+    type: "Long Stay",
     tags: ["Puolihoito", "Rantakohde", "Lennä lähelle"],
+    persons: 1,
+    rooms: 1,
+    href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
+  },
+  {
+    id: "7",
+    image: heroCostaNavarino,
+    title: "Teemamatka: Viini & Golf",
+    location: "Pilos, Kreikka",
+    country: "Kreikka",
+    dates: "Toukokuu 2026",
+    startDate: "2026-05-10",
+    duration: "7 vrk",
+    price: 2450,
+    type: "Teemamatkat",
+    tags: ["Gourmet", "Viini", "Kulttuuri", "Luksus"],
     persons: 1,
     rooms: 1,
     href: "/pelimatkat/egypti/soma-bay/somabay-golf-hurghada",
   },
 ];
 
-const tripTypes = ["Pelimatka", "Opetusmatka", "Long stay"];
+const tripTypes = ["Pelimatkat", "Long Stay", "Short Break", "Pron matkassa", "Kisamatkat", "Teemamatkat"];
 const countries = [
   "Bulgaria", "Egypti", "Espanja", "Etelä-Afrikka", "Indonesia", "Italia",
   "Kanariansaaret", "Kenia", "Kreikka", "Marokko", "Pohjois-Kypros",
@@ -218,7 +234,7 @@ export function BookingEmbed() {
   });
 
   return (
-    <section id="booking-embed" className="booking-section">
+    <section id="booking-embed" className="booking-embed-section">
       <div className="booking-container">
         <div className="booking-header">
           <span className="booking-label">Kaikki matkat</span>
@@ -278,12 +294,11 @@ export function BookingEmbed() {
                   />
                 </div>
                 <div className="filter-input-with-icon">
-                  <Calendar className="filter-icon-inline" />
                   <input
                     type="date"
                     value={endDate}
                     onChange={(e) => setEndDate(e.target.value)}
-                    className="filter-input filter-input-date-right"
+                    className="filter-input filter-input-date-right filter-input-date-right-no-icon"
                     placeholder="Loppupäivä"
                   />
                 </div>
@@ -375,7 +390,7 @@ export function BookingEmbed() {
             <Link
               key={trip.id}
               to={trip.href}
-              className="trip-card"
+              className={`trip-card trip-card-${trip.type.toLowerCase().replace(' ', '')}`}
               style={{ animationDelay: `${index * 50}ms` }}
             >
               <div className="trip-image-container">
@@ -385,11 +400,18 @@ export function BookingEmbed() {
                   className="trip-image"
                 />
                 <div className="trip-image-overlay" />
-                {trip.badge && (
-                  <span className={`trip-badge ${trip.badgeColor || 'badge-primary'}`}>
-                    {trip.badge}
-                  </span>
-                )}
+                <div className="trip-badges-container">
+                  {trip.type !== "Pelimatka" && trip.type !== "Pelimatkat" && (
+                    <span className="trip-type-tag">
+                      {trip.type}
+                    </span>
+                  )}
+                  {trip.badge && (
+                    <span className={`trip-badge ${trip.badgeColor || 'badge-primary'}`}>
+                      {trip.badge}
+                    </span>
+                  )}
+                </div>
                 <div className="trip-price-badge">
                   <span className="trip-price-from">alk.</span>
                   <span className="trip-price-amount">{trip.price} €</span>
@@ -429,8 +451,8 @@ export function BookingEmbed() {
             03 515 1007
           </a>
         </div>
-      </div >
-    </section >
+      </div>
+    </section>
   );
 }
 

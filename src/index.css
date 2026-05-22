@@ -16,10 +16,11 @@
     --primary-hover: 24 100% 45%;
     --primary-glow: 24 100% 60%;
 
-    /* Secondary: Sky Blue */
-    --secondary: 199 100% 42%;
+    /* Secondary: Golfpassi Blue (#00a8ff) */
+    --secondary: 201 100% 50%;
     --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 199 100% 35%;
+    --secondary-hover: 201 100% 40%;
+    --secondary-glow: 201 100% 60%;
 
     /* Golf Green */
     --golf-green: 145 60% 35%;
@@ -31,6 +32,18 @@
     --turquoise-light: 175 60% 60%;
     --purple-accent: 270 50% 55%;
     --purple-accent-light: 270 40% 70%;
+
+    /* Bulletin & Alerts */
+    --bulletin-bg: 48 100% 96%;
+    --bulletin-border: 48 95% 90%;
+    --bulletin-text: 28 80% 25%;
+    --bulletin-title: 28 80% 20%;
+    --bulletin-icon-bg: 48 95% 90%;
+    --bulletin-icon-text: 35 90% 35%;
+
+    /* Section Backgrounds */
+    --tour-guide-bg: 110 20% 92%;
+    --dates-bg: 32 100% 97%;
 
     /* Neutral */
     --muted: 220 15% 95%;
@@ -50,27 +63,28 @@
 
     --border: 220 15% 90%;
     --input: 220 15% 90%;
-    --ring: 24 100% 50%;
+    --ring: 201 100% 50%;
 
     --radius: 0.75rem;
 
     /* Dark surface for nav/footer */
-    --surface-dark: 220 25% 12%;
-    --surface-dark-foreground: 0 0% 95%;
+    --surface-dark: 201 100% 50%;
+    /* Changed to Golfpassi Blue */
+    --surface-dark-foreground: 0 0% 100%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(220 25% 12% / 0.85), hsl(220 25% 12% / 0.6));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100% / 0), hsl(220 25% 12% / 0.9));
+    --gradient-hero: linear-gradient(135deg, hsl(201 100% 50% / 0.85), hsl(201 100% 50% / 0.6));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100% / 0), hsl(201 100% 50% / 0.9));
     --gradient-orange: linear-gradient(135deg, hsl(24 100% 50%), hsl(24 100% 60%));
     --gradient-green: linear-gradient(135deg, hsl(145 60% 35%), hsl(145 50% 50%));
-    --gradient-blue: linear-gradient(135deg, hsl(199 100% 42%), hsl(175 70% 45%));
+    --gradient-blue: linear-gradient(135deg, hsl(201 100% 50%), hsl(201 100% 60%));
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(220 25% 12% / 0.08);
-    --shadow-md: 0 8px 24px hsl(220 25% 12% / 0.12);
-    --shadow-lg: 0 16px 48px hsl(220 25% 12% / 0.16);
+    --shadow-sm: 0 2px 8px hsl(201 100% 50% / 0.08);
+    --shadow-md: 0 8px 24px hsl(201 100% 50% / 0.12);
+    --shadow-lg: 0 16px 48px hsl(201 100% 50% / 0.16);
     --shadow-glow-orange: 0 8px 32px hsl(24 100% 50% / 0.35);
-    --shadow-glow-blue: 0 8px 32px hsl(199 100% 42% / 0.35);
+    --shadow-glow-blue: 0 8px 32px hsl(201 100% 50% / 0.35);
 
     /* Sidebar */
     --sidebar-background: 220 25% 12%;
@@ -321,4 +335,46 @@
 
 .delay-500 {
   animation-delay: 500ms;
+}
+
+@layer components {
+  .bulletin-box {
+    @apply mt-6 bg-yellow-50 border border-yellow-100 rounded-xl p-6 flex gap-4 items-start;
+  }
+
+  .bulletin-icon-wrapper {
+    @apply bg-yellow-100 p-2 rounded-full text-yellow-700;
+  }
+
+  .bulletin-heading {
+    @apply font-bold text-yellow-900 mb-1;
+  }
+
+  .bulletin-content {
+    @apply text-yellow-800 text-sm leading-relaxed;
+  }
+
+  .section-departure-dates {
+    @apply py-5 border-y border-border;
+    background-color: white;
+  }
+
+  .map-iframe-container {
+    @apply w-full h-[500px] bg-muted/20 rounded-xl overflow-hidden border border-border flex items-center justify-center relative;
+  }
+
+  .map-iframe {
+    border: 0;
+    @apply absolute inset-0 w-full h-full;
+  }
+}
+
+/* Global Badge Styles */
+.badge-primary,
+.badge-turquoise,
+.badge-golf {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: black !important;
 }
