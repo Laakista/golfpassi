@@ -158,6 +158,16 @@ export default function KohdeSivu() {
 
   const dest = destinationId ? mockDestinations[destinationId] : null;
 
+  const secondResortImages = [
+    "https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80",
+    "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80"
+  ];
+
+  const secondGolfImages = [
+    "https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80",
+    "https://images.unsplash.com/photo-1623718649591-311775a30c43?w=800&q=80"
+  ];
+
   if (!dest) {
     return (
       <div className="min-h-screen bg-background">
@@ -379,7 +389,7 @@ export default function KohdeSivu() {
 
                 {/* Resort Images */}
                 <div className="resort-images-grid gap-6">
-                  {dest.resort.images.map((image, index) => (
+                  {secondResortImages.map((image, index) => (
                     <div key={index} className="resort-image-wrapper">
                       <img src={image} alt={`Majoitusvaihtoehto 2 ${index + 1}`} className="resort-image" />
                     </div>
@@ -511,9 +521,9 @@ export default function KohdeSivu() {
                     </div>
                   </div>
 
-                  {course.images.length > 0 && (
+                  {secondGolfImages.length > 0 && (
                     <div className="resort-images-grid gap-6">
-                      {course.images.map((image, imgIndex) => (
+                      {secondGolfImages.map((image, imgIndex) => (
                         <div key={imgIndex} className="resort-image-wrapper">
                           <img src={image} alt={`Toinen golfkenttä ${imgIndex + 1}`} className="resort-image" />
                         </div>
