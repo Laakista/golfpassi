@@ -28,24 +28,10 @@ const bulletins = [
   },
   {
     id: "b2",
-    type: "alert",
+    type: "warning",
     title: "Maastopalot Kreikassa ja Turkissa",
     content: "Seuraamme tilannetta tiiviisti. Toistaiseksi matkat toteutuvat suunnitellusti. Vaikutukset koskevat pääasiassa liikennejärjestelyitä tietyillä alueilla.",
     date: "12.5.2026"
-  },
-  {
-    id: "b3",
-    type: "info",
-    title: "Uusia kohteita julkaistu kaudelle 2027",
-    content: "Olemme lisänneet useita uusia kohteita Skotlantiin ja Irlantiin. Tutustu valikoimaan!",
-    date: "15.5.2026"
-  },
-  {
-    id: "b4",
-    type: "info",
-    title: "Golfpassin syysmatkat on nyt myynnissä",
-    content: "Varmista paikkasi suosituimmille syysmatkoillemme nyt.",
-    date: "10.5.2026"
   },
   {
     id: "b5",
@@ -124,10 +110,20 @@ const Tiedotteet = () => {
     <div className="min-h-screen bg-white">
       <Header />
       
-      <main className="pt-28 md:pt-36 pb-0">
+      <main className="tiedotteet-main pb-0">
+        
+        {/* Hero */}
+        <div className="tiedotteet-container">
+          <div className="tiedotteet-hero mb-16">
+            <h1 className="tiedotteet-title">Tiedotteet ja artikkelit</h1>
+            <p className="tiedotteet-description">
+              Tärkeää ajankohtaista tietoa sekä vinkkejä ja tarinoita golfmatkailun maailmasta.
+            </p>
+          </div>
+        </div>
         
         {/* Full-width Bulletins at Top */}
-        <section className="bg-muted/30 py-16 mb-20">
+        <section className="py-16 mb-20" style={{ backgroundColor: '#ff660014' }}>
           <div className="max-w-[1400px] mx-auto px-6">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
@@ -142,6 +138,7 @@ const Tiedotteet = () => {
                   <div className="flex justify-between items-start mb-3">
                     <span className="bulletin-date">{bulletin.date}</span>
                     {bulletin.type === 'alert' && <AlertCircle className="w-5 h-5 text-destructive" />}
+                    {bulletin.type === 'warning' && <AlertCircle className="w-5 h-5 text-amber-600" />}
                   </div>
                   <h4 className="font-bold text-lg mb-2 leading-tight">{bulletin.title}</h4>
                   <p className="text-sm opacity-90 leading-relaxed">{bulletin.content}</p>
