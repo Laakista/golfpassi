@@ -201,7 +201,6 @@ export default function KohdeSivu() {
       <section className="kohde-hero-section">
         <img src={dest.heroImage} alt={dest.name} className="kohde-hero-image" />
         <div className="kohde-hero-overlay-r" />
-        <div className="kohde-hero-overlay-t" />
 
         <div className="kohde-hero-content">
           <div className="kohde-hero-text">
