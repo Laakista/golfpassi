@@ -27,13 +27,6 @@ const categories = ["Kaikki", "Uutiset", "Tarjoukset", "Vinkit", "Tapahtumat"];
 
 const bulletins = [
   {
-    id: "b6",
-    type: "info",
-    title: "Uudistimme Golfpassin verkkosivut ja varausjärjestelmän!",
-    content: "Täydellisen golfmatkan löytäminen ja varaaminen on nyt entistä helpompaa ja sujuvampaa. Tutustu uudistuneeseen sivustoon ja anna palautetta vapaasti!",
-    date: "25.5.2026"
-  },
-  {
     id: "b1",
     type: "info",
     title: "Toimistomme palvelee puhelimitse arkisin klo 9-16",
@@ -53,6 +46,13 @@ const bulletins = [
     title: "Lentoliikenteen lakonuhka Ranskassa",
     content: "Seuraamme Ranskan lennonjohdon lakon vaikutuksia. Tiedotamme matkustajia suoraan tarvittaessa.",
     date: "14.5.2026"
+  },
+  {
+    id: "b6",
+    type: "info",
+    title: "Uudistimme Golfpassin verkkosivut ja varausjärjestelmän!",
+    content: "Täydellisen golfmatkan löytäminen ja varaaminen on nyt entistä helpompaa ja sujuvampaa. Tutustu uudistuneeseen sivustoon ja anna palautetta vapaasti!",
+    date: "25.5.2026"
   }
 ];
 

@@ -196,11 +196,11 @@
 
 .bulletin-info {
     background-color: white;
-    border: 1.5px solid #60a5fa;
+    border: 1.5px solid hsla(201, 100%, 50%, 0.5);
 }
 
 .bulletin-info h4 {
-    color: #2563eb;
+    color: hsl(var(--secondary));
 }
 
 .bulletin-alert {
