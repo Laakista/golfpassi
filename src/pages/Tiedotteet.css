@@ -195,15 +195,21 @@
 }
 
 .bulletin-info {
-    background-color: #f0f9ff;
-    border-color: #bae6fd;
-    color: #0369a1;
+    background-color: white;
+    border: 1.5px solid #60a5fa;
+}
+
+.bulletin-info h4 {
+    color: #2563eb;
 }
 
 .bulletin-alert {
-    background-color: #fef2f2;
-    border-color: #fecaca;
-    color: #b91c1c;
+    background-color: white;
+    border: 1.5px solid #f87171;
+}
+
+.bulletin-alert h4 {
+    color: #dc2626;
 }
 
 .bulletin-date {
@@ -309,7 +315,10 @@
 
 /* Warning bulletin (yellow) */
 .bulletin-warning {
-    background-color: #fefce8;
-    border-color: #fef08a;
-    color: #854d0e;
+    background-color: white;
+    border: 1.5px solid #fb923c;
+}
+
+.bulletin-warning h4 {
+    color: #ea580c;
 }

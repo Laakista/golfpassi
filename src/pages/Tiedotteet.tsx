@@ -3,22 +3,36 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Newsletter } from "@/components/home/Newsletter";
 import { Link } from "react-router-dom";
-import { 
-  Search, 
-  ChevronRight, 
-  Calendar, 
-  Clock, 
-  Tag, 
-  AlertCircle, 
+import {
+  Search,
+  ChevronRight,
+  Calendar,
+  Clock,
+  Tag,
+  AlertCircle,
   Info,
   ArrowRight,
   Filter
 } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import "./Tiedotteet.css";
 
 const categories = ["Kaikki", "Uutiset", "Tarjoukset", "Vinkit", "Tapahtumat"];
 
 const bulletins = [
+  {
+    id: "b6",
+    type: "info",
+    title: "Uudistimme Golfpassin verkkosivut ja varausjärjestelmän!",
+    content: "Täydellisen golfmatkan löytäminen ja varaaminen on nyt entistä helpompaa ja sujuvampaa. Tutustu uudistuneeseen sivustoon ja anna palautetta vapaasti!",
+    date: "25.5.2026"
+  },
   {
     id: "b1",
     type: "info",
@@ -102,28 +116,28 @@ const articles = [
 const Tiedotteet = () => {
   const [selectedCategory, setSelectedCategory] = useState("Kaikki");
 
-  const filteredArticles = selectedCategory === "Kaikki" 
-    ? articles 
+  const filteredArticles = selectedCategory === "Kaikki"
+    ? articles
     : articles.filter(a => a.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
+
       <main className="tiedotteet-main pb-0">
-        
+
         {/* Hero */}
         <div className="tiedotteet-container">
           <div className="tiedotteet-hero mb-16">
             <h1 className="tiedotteet-title">Tiedotteet ja artikkelit</h1>
             <p className="tiedotteet-description">
-              Tärkeää ajankohtaista tietoa sekä vinkkejä ja tarinoita golfmatkailun maailmasta.
+              Tärkeää ajankohtaista tietoa ja tarinoita golfmatkailun maailmasta.
             </p>
           </div>
         </div>
-        
+
         {/* Full-width Bulletins at Top */}
-        <section className="py-16 mb-20" style={{ backgroundColor: '#ff660014' }}>
+        <section className="mb-20">
           <div className="max-w-[1400px] mx-auto px-6">
             <div className="flex items-center justify-between mb-8">
               <div className="flex items-center gap-3">
@@ -131,31 +145,40 @@ const Tiedotteet = () => {
                 <h2 className="font-serif text-3xl font-bold">Tiedotteet</h2>
               </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {bulletins.map(bulletin => (
-                <div key={bulletin.id} className={`bulletin-full-card bulletin-${bulletin.type}`}>
-                  <div className="flex justify-between items-start mb-3">
-                    <span className="bulletin-date">{bulletin.date}</span>
-                    {bulletin.type === 'alert' && <AlertCircle className="w-5 h-5 text-destructive" />}
-                    {bulletin.type === 'warning' && <AlertCircle className="w-5 h-5 text-amber-600" />}
-                  </div>
-                  <h4 className="font-bold text-lg mb-2 leading-tight">{bulletin.title}</h4>
-                  <p className="text-sm opacity-90 leading-relaxed">{bulletin.content}</p>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-10 text-center">
-              <button className="lataa-vanhempia-btn">
-                Lataa vanhempia tiedotteita
-              </button>
-            </div>
+
+            <Carousel
+              opts={{
+                align: "start",
+                loop: false,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-6 py-4">
+                {bulletins.map(bulletin => (
+                  <CarouselItem key={bulletin.id} className="pl-6 basis-full md:basis-1/2 lg:basis-1/3">
+                    <div className={`bulletin-full-card bulletin-${bulletin.type}`}>
+                      <div className="flex justify-between items-start mb-3">
+                        <span className="bulletin-date">{bulletin.date}</span>
+                        {bulletin.type === 'alert' && <AlertCircle className="w-5 h-5 text-destructive" />}
+                        {bulletin.type === 'warning' && <AlertCircle className="w-5 h-5 text-amber-600" />}
+                      </div>
+                      <h4 className="font-bold text-lg mb-2 leading-tight">{bulletin.title}</h4>
+                      <p className="text-sm opacity-90 leading-relaxed">{bulletin.content}</p>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              
+              <div className="flex justify-center gap-4 mt-6">
+                <CarouselPrevious className="relative inset-auto translate-y-0 translate-x-0 border-2 w-12 h-12 hover:bg-slate-100" />
+                <CarouselNext className="relative inset-auto translate-y-0 translate-x-0 border-2 w-12 h-12 hover:bg-slate-100" />
+              </div>
+            </Carousel>
           </div>
         </section>
 
         <div className="max-w-[1400px] mx-auto px-6 pb-24">
-          
+
           {/* Article Listing Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
             <div>
@@ -164,18 +187,17 @@ const Tiedotteet = () => {
                 Syvenny matkakohteisiin, poimi parhaat vinkit ja lue tuoreimmat kuulumiset golfkentiltä.
               </p>
             </div>
-            
+
             {/* Category Filter */}
             <div className="flex flex-wrap gap-2">
               {categories.map(cat => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-6 py-2 rounded-full font-bold text-sm transition-all border ${
-                    selectedCategory === cat 
-                      ? "bg-secondary text-white border-secondary shadow-md" 
+                  className={`px-6 py-2 rounded-full font-bold text-sm transition-all border ${selectedCategory === cat
+                      ? "bg-secondary text-white border-secondary shadow-md"
                       : "bg-white text-muted-foreground border-muted-foreground/20 hover:border-secondary/50 hover:text-secondary"
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>
