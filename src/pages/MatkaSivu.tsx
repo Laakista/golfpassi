@@ -996,19 +996,6 @@ const MatkaSivu = () => {
               </div>
 
               <div className="flex-1" />
-
-              {trip.quoteConfiguration && (
-                <button
-                  onClick={() => setSelectedDateIndex("quote")}
-                  className={cn(
-                    "date-badge",
-                    selectedDateIndex === "quote" && "date-badge-selected"
-                  )}
-                >
-                  <Sparkles className="w-3.5 h-3.5 text-primary" />
-                  <span className="date-text">Pyydä yksilöity tarjous</span>
-                </button>
-              )}
             </div>
           </div>
 
