@@ -497,15 +497,15 @@ const MatkaSivu = () => {
                 </div>
 
                 {/* Example Bulletin */}
-                <div className="flex flex-row items-start gap-4 p-6 bg-yellow-50 rounded-xl border border-yellow-100 mt-8">
-                  <div className="flex-shrink-0 bg-yellow-100 p-2 rounded-full text-yellow-700">
+                <div className="flex flex-row items-start gap-4 p-6 bg-white rounded-xl border-[1.5px] border-[#fb923c] mt-8">
+                  <div className="flex-shrink-0 text-[#ea580c] mt-1">
                     <AlertCircle className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-yellow-900 mb-1 text-lg">Tiedote: Maastopalot kohteessa</h4>
-                    <p className="text-yellow-800 text-sm leading-relaxed">
+                    <h4 className="font-bold text-[#ea580c] mb-1 text-lg">Tiedote: Maastopalot kohteessa</h4>
+                    <p className="text-slate-700 text-sm leading-relaxed">
                       Lähialueella esiintyvät maastopalot eivät tällä hetkellä vaikuta lentojen aikatauluihin tai hotellin palveluihin. Palot saattavat kuitenkin näkyä paikallisissa liikennejärjestelyissä. Seuraamme tilannetta tiiviisti viranomaisten kanssa.
-                  </p>
+                    </p>
                   </div>
                 </div>
               </div>
