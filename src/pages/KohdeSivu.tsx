@@ -78,7 +78,7 @@ const mockDestinations: Record<string, DestinationData> = {
     country: "Egypti",
     stars: 5,
     heroImage: somabayHero,
-    tags: ["Aavikkogolf", "Thalasso Spa", "Aurinko"],
+    tags: ["ranta", "puolihoito"],
     lowestPrice: 1395,
     description: `Soma Bay sijaitsee noin 45 kilometrin päässä suositusta Hurghadan merenrantakaupungista kohti etelää, Punaisenmeren rannalla. Soma Bay on täydellinen kohde talvigolfmatkalle, sillä ympärivuotinen lämmin ilmasto ja erittäin pienet vuosittaiset sademäärät takaavat mahtavat sääolosuhteet golflomalle!
 
@@ -200,11 +200,7 @@ export default function KohdeSivu() {
               <span className="kohde-hero-location-text">{dest.country}</span>
             </div>
 
-            <div className="kohde-hero-stars">
-              {Array.from({ length: dest.stars }).map((_, i) => (
-                <Star key={i} />
-              ))}
-            </div>
+
 
             <h1 className="kohde-hero-title">{dest.name}</h1>
 
@@ -285,82 +281,170 @@ export default function KohdeSivu() {
           {/* Resort Tab */}
           {activeTab === "resort" && (
             <div className="animate-fade-in">
-              <div className="resort-header">
-                <h3 className="resort-title">{dest.resort.name}</h3>
-                <div className="resort-stars">
-                  {Array.from({ length: dest.resort.stars }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                  ))}
-                </div>
-              </div>
-
-              {/* Resort Images */}
-              <div className="resort-images-grid gap-6">
-                {dest.resort.images.map((image, index) => (
-                  <div key={index} className="resort-image-wrapper">
-                    <img src={image} alt={`${dest.resort.name} ${index + 1}`} className="resort-image" />
+              {/* First Resort */}
+              <div>
+                <div className="resort-header">
+                  <h3 className="resort-title">{dest.resort.name}</h3>
+                  <div className="resort-stars">
+                    {Array.from({ length: dest.resort.stars }).map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
 
-              {/* Resort Description */}
-              <div className="description-container">
-                <div className="description-grid">
-                  {dest.resort.description.split("\n\n").map((paragraph, index) => (
-                    <div key={index} className="description-column">
-                      <p className="description-text">{paragraph}</p>
-                      {index < dest.resort.description.split("\n\n").length - 1 && (
-                        <div className="description-separator" />
-                      )}
+                {/* Resort Images */}
+                <div className="resort-images-grid gap-6">
+                  {dest.resort.images.map((image, index) => (
+                    <div key={index} className="resort-image-wrapper">
+                      <img src={image} alt={`${dest.resort.name} ${index + 1}`} className="resort-image" />
                     </div>
                   ))}
                 </div>
+
+                {/* Resort Description */}
+                <div className="description-container">
+                  <div className="description-grid">
+                    {dest.resort.description.split("\n\n").map((paragraph, index) => (
+                      <div key={index} className="description-column">
+                        <p className="description-text">{paragraph}</p>
+                        {index < dest.resort.description.split("\n\n").length - 1 && (
+                          <div className="description-separator" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Amenities & Features Grid */}
+                <div className="amenities-grid gap-6">
+                  <div className="amenities-card">
+                    <h4 className="amenities-title">
+                      <Building2 className="w-5 h-5 text-primary" />
+                      Palvelut
+                    </h4>
+                    <ul className="amenities-list">
+                      {dest.resort.amenities.map((amenity, index) => (
+                        <li key={index} className="amenities-item">
+                          <CheckCircle2 className="w-4 h-4 text-secondary" />
+                          {amenity}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="amenities-card">
+                    <h4 className="amenities-title">
+                      <Wifi className="w-5 h-5 text-primary" />
+                      Huoneissa
+                    </h4>
+                    <ul className="amenities-list">
+                      {dest.resort.facilities.map((facility, index) => (
+                        <li key={index} className="amenities-item">
+                          <CheckCircle2 className="w-4 h-4 text-secondary" />
+                          {facility}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="amenities-card">
+                    <h4 className="amenities-title">
+                      <MapPin className="w-5 h-5 text-primary" />
+                      Etäisyydet
+                    </h4>
+                    <ul className="amenities-list">
+                      {dest.resort.distances.map((distance, index) => (
+                        <li key={index} className="text-muted-foreground">
+                          <span className="font-medium text-secondary">{distance.label}:</span> {distance.value}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
 
-              {/* Amenities & Features Grid */}
-              <div className="amenities-grid gap-6">
-                <div className="amenities-card">
-                  <h4 className="amenities-title">
-                    <Building2 className="w-5 h-5 text-primary" />
-                    Palvelut
-                  </h4>
-                  <ul className="amenities-list">
-                    {dest.resort.amenities.map((amenity, index) => (
-                      <li key={index} className="amenities-item">
-                        <CheckCircle2 className="w-4 h-4 text-secondary" />
-                        {amenity}
-                      </li>
+              {/* Hento 1px jakoviiva ja reilusti tilaa */}
+              <div className="border-t border-border/50 my-16" />
+
+              {/* Second Resort */}
+              <div>
+                <div className="resort-header">
+                  <h3 className="resort-title">Majoitusvaihtoehto 2</h3>
+                  <div className="resort-stars">
+                    {Array.from({ length: dest.resort.stars }).map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                <div className="amenities-card">
-                  <h4 className="amenities-title">
-                    <Wifi className="w-5 h-5 text-primary" />
-                    Huoneissa
-                  </h4>
-                  <ul className="amenities-list">
-                    {dest.resort.facilities.map((facility, index) => (
-                      <li key={index} className="amenities-item">
-                        <CheckCircle2 className="w-4 h-4 text-secondary" />
-                        {facility}
-                      </li>
-                    ))}
-                  </ul>
+                {/* Resort Images */}
+                <div className="resort-images-grid gap-6">
+                  {dest.resort.images.map((image, index) => (
+                    <div key={index} className="resort-image-wrapper">
+                      <img src={image} alt={`Majoitusvaihtoehto 2 ${index + 1}`} className="resort-image" />
+                    </div>
+                  ))}
                 </div>
 
-                <div className="amenities-card">
-                  <h4 className="amenities-title">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    Etäisyydet
-                  </h4>
-                  <ul className="amenities-list">
-                    {dest.resort.distances.map((distance, index) => (
-                      <li key={index} className="text-muted-foreground">
-                        <span className="font-medium text-secondary">{distance.label}:</span> {distance.value}
-                      </li>
+                {/* Resort Description */}
+                <div className="description-container">
+                  <div className="description-grid">
+                    {dest.resort.description.split("\n\n").map((paragraph, index) => (
+                      <div key={index} className="description-column">
+                        <p className="description-text">{paragraph}</p>
+                        {index < dest.resort.description.split("\n\n").length - 1 && (
+                          <div className="description-separator" />
+                        )}
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+                </div>
+
+                {/* Amenities & Features Grid */}
+                <div className="amenities-grid gap-6">
+                  <div className="amenities-card">
+                    <h4 className="amenities-title">
+                      <Building2 className="w-5 h-5 text-primary" />
+                      Palvelut
+                    </h4>
+                    <ul className="amenities-list">
+                      {dest.resort.amenities.map((amenity, index) => (
+                        <li key={index} className="amenities-item">
+                          <CheckCircle2 className="w-4 h-4 text-secondary" />
+                          {amenity}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="amenities-card">
+                    <h4 className="amenities-title">
+                      <Wifi className="w-5 h-5 text-primary" />
+                      Huoneissa
+                    </h4>
+                    <ul className="amenities-list">
+                      {dest.resort.facilities.map((facility, index) => (
+                        <li key={index} className="amenities-item">
+                          <CheckCircle2 className="w-4 h-4 text-secondary" />
+                          {facility}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="amenities-card">
+                    <h4 className="amenities-title">
+                      <MapPin className="w-5 h-5 text-primary" />
+                      Etäisyydet
+                    </h4>
+                    <ul className="amenities-list">
+                      {dest.resort.distances.map((distance, index) => (
+                        <li key={index} className="text-muted-foreground">
+                          <span className="font-medium text-secondary">{distance.label}:</span> {distance.value}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -368,7 +452,8 @@ export default function KohdeSivu() {
 
           {/* Golf Tab */}
           {activeTab === "golf" && (
-            <div className="animate-fade-in">
+            <div className="animate-fade-in space-y-16">
+              {/* First Golf Course */}
               {dest.golfCourses.map((course, index) => (
                 <div key={index} className="golf-course-container">
                   <div className="golf-header">
@@ -388,6 +473,49 @@ export default function KohdeSivu() {
                       {course.images.map((image, imgIndex) => (
                         <div key={imgIndex} className="resort-image-wrapper">
                           <img src={image} alt={`${course.name} ${imgIndex + 1}`} className="resort-image" />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="description-container">
+                    <div className="description-grid">
+                      {course.description.split("\n\n").map((paragraph, pIndex) => (
+                        <div key={pIndex} className="description-column">
+                          <p className="description-text">{paragraph}</p>
+                          {pIndex < course.description.split("\n\n").length - 1 && (
+                            <div className="description-separator" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Hento 1px jakoviiva ja reilusti tilaa */}
+              <div className="border-t border-border/50" />
+
+              {/* Second Golf Course */}
+              {dest.golfCourses.map((course, index) => (
+                <div key={`second-${index}`} className="golf-course-container mt-0">
+                  <div className="golf-header">
+                    <div>
+                      <h3 className="golf-title">Toinen golfkenttä</h3>
+                      {course.designer && (
+                        <p className="golf-designer">
+                          Suunnittelija: <span className="font-medium text-foreground">{course.designer}</span>
+                          {course.par && ` • Par ${course.par}`}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  {course.images.length > 0 && (
+                    <div className="resort-images-grid gap-6">
+                      {course.images.map((image, imgIndex) => (
+                        <div key={imgIndex} className="resort-image-wrapper">
+                          <img src={image} alt={`Toinen golfkenttä ${imgIndex + 1}`} className="resort-image" />
                         </div>
                       ))}
                     </div>
